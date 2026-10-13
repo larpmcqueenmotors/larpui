@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warning icons preview</title>
+  <style>
+    :root { --red: #f50000; --ink: #1a1a1a; --paper: #f6f3ec; --ground: #ddd8ce; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 40px 24px 72px; background: var(--ground); color: var(--ink); font-family: "Avenir Next", "Helvetica Neue", sans-serif; }
+    main { max-width: 1080px; margin: 0 auto; background: var(--paper); border: 1px solid var(--ink); border-top: 4px solid var(--red); box-shadow: 10px 10px 0 var(--ink); }
+    header { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding: 32px; border-bottom: 1px solid var(--ink); }
+    h1, h2, p { margin: 0; }
+    h1, h2 { font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif; font-style: italic; text-transform: uppercase; }
+    h1 { font-size: clamp(38px, 6vw, 64px); line-height: .85; letter-spacing: .02em; }
+    h2 { margin-bottom: 18px; font-size: 18px; letter-spacing: .08em; }
+    h2 span { color: var(--red); margin-right: 8px; }
+    .intro { max-width: 32rem; color: #66615b; font-size: 13px; line-height: 1.5; }
+    section { padding: 30px 32px 36px; }
+    section + section { border-top: 1px solid #d8d3ca; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 20px 12px; }
+    figure { margin: 0; }
+    .tile { height: 104px; display: grid; place-items: center; background: #fff; border: 1px solid var(--ink); color: var(--ink); }
+    .icon { width: 64px; height: 64px; background: currentColor; -webkit-mask: var(--asset) center / contain no-repeat; mask: var(--asset) center / contain no-repeat; }
+    .severity .tile { color: var(--red); }
+    figcaption { margin-top: 8px; color: #6e6a64; font-size: 10px; font-weight: 700; letter-spacing: .13em; text-align: center; text-transform: uppercase; }
+    .sizes { display: flex; align-items: center; gap: 28px; min-height: 104px; padding: 20px 24px; background: #101010; color: #fff; }
+    .sizes .icon:nth-child(1) { width: 16px; height: 16px; }
+    .sizes .icon:nth-child(2) { width: 24px; height: 24px; }
+    .sizes .icon:nth-child(3) { width: 32px; height: 32px; }
+    .sizes .icon:nth-child(4) { width: 48px; height: 48px; color: var(--red); }
+    code { font: 600 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: none; }
+    @media (max-width: 680px) {
+      body { padding: 16px 12px 40px; }
+      main { box-shadow: 6px 6px 0 var(--ink); }
+      header { align-items: start; flex-direction: column; }
+      header, section { padding-right: 20px; padding-left: 20px; }
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .tile { height: 88px; }
+      .icon { width: 52px; height: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Warning<br>icons</h1>
+      <p class="intro">A 24px automotive set using <code>currentColor</code>. Vehicle symbols come from the Apache-2.0 licensed Material Design Icons library.</p>
+    </header>
+
+    <section class="severity">
+      <h2><span>01</span> Severity</h2>
+      <div class="grid">
+        <figure><div class="tile"><i class="icon" style="--asset:url('caution.svg')"></i></div><figcaption>Caution</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('warning.svg')"></i></div><figcaption>Warning</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('danger.svg')"></i></div><figcaption>Danger</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('critical.svg')"></i></div><figcaption>Critical</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('stop.svg')"></i></div><figcaption>Stop</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('restricted.svg')"></i></div><figcaption>Restricted</figcaption></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2><span>02</span> Vehicle</h2>
+      <div class="grid">
+        <figure><div class="tile"><i class="icon" style="--asset:url('engine.svg')"></i></div><figcaption>Engine</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('oil.svg')"></i></div><figcaption>Oil pressure</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('temperature.svg')"></i></div><figcaption>Temperature</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('battery.svg')"></i></div><figcaption>Battery</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('brake.svg')"></i></div><figcaption>Brake</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('tire.svg')"></i></div><figcaption>Tire pressure</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('fuel.svg')"></i></div><figcaption>Fuel</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('traction.svg')"></i></div><figcaption>Traction</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('seatbelt.svg')"></i></div><figcaption>Seat belt</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('coolant.svg')"></i></div><figcaption>Coolant</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('steering.svg')"></i></div><figcaption>Steering</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('lights.svg')"></i></div><figcaption>Lamp fault</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('fog.svg')"></i></div><figcaption>Fog lights</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('door.svg')"></i></div><figcaption>Door</figcaption></figure>
+        <figure><div class="tile"><i class="icon" style="--asset:url('service.svg')"></i></div><figcaption>Service</figcaption></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2><span>03</span> Optical sizes</h2>
+      <div class="sizes" aria-label="Warning icon shown at 16, 24, 32, and 48 pixels">
+        <i class="icon" style="--asset:url('warning.svg')"></i>
+        <i class="icon" style="--asset:url('warning.svg')"></i>
+        <i class="icon" style="--asset:url('warning.svg')"></i>
+        <i class="icon" style="--asset:url('warning.svg')"></i>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
