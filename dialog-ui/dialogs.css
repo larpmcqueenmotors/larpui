@@ -1,0 +1,279 @@
+/* LARP UI — Warning dialog
+   Skewed glass plate, red rail, hard shadow.
+
+   Markup
+   <div class="dlg-scrim on-dark" data-open>
+     <div class="dlg dlg-warn" role="alertdialog" aria-modal="true" aria-labelledby="…">
+       <span class="dlg-shadow" aria-hidden="true"></span>
+       <div class="dlg-face">
+         <div class="dlg-unskew">
+           <header class="dlg-head">…</header>
+           <div class="dlg-body">…</div>
+           <footer class="dlg-foot">…</footer>
+         </div>
+       </div>
+     </div>
+   </div>
+*/
+
+:root {
+  --larp-red: #f50000;
+  --larp-black: #1a1a1a;
+  --larp-white: #fff;
+  --larp-glass: #141414;
+  --larp-mist: rgba(10, 10, 10, 0.72);
+  --larp-paper: #f6f3ec;
+  --lean: -8deg;
+  --dlg-sink: 8px;
+  --dlg-font: "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --dlg-body-font: "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+/* Scrim */
+
+.dlg-scrim {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-height: 420px;
+  padding: 36px 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(245, 0, 0, 0.12), transparent 55%),
+    linear-gradient(180deg, #0c0c0c, #161616 48%, #0a0a0a);
+  color: var(--larp-white);
+}
+
+.dlg-scrim::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgba(255, 255, 255, 0.03) 12% 12.5%, transparent 12.5%),
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+.dlg-scrim.is-live {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  min-height: 0;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 180ms linear;
+}
+
+.dlg-scrim.is-live[data-open] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background-color: var(--larp-mist);
+}
+
+/* Plate */
+
+.dlg {
+  --face: var(--larp-glass);
+  --ink: var(--larp-white);
+  --mute: #9a9a9a;
+  --line: #2c2c2c;
+  --rail: #ffb020;
+  --shade: #000;
+  --width: 440px;
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--width));
+  color: var(--ink);
+  font-family: var(--dlg-body-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dlg-shadow {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: var(--shade);
+  transform: skewX(var(--lean)) translate(var(--dlg-sink), var(--dlg-sink));
+  pointer-events: none;
+}
+
+.dlg-face {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: var(--face);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transform: skewX(var(--lean));
+  overflow: hidden;
+}
+
+.dlg-face::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rail) 0%, var(--rail) 62%, transparent 100%);
+  pointer-events: none;
+}
+
+.dlg-face::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.dlg-unskew {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-inline: 4px;
+  transform: skewX(calc(var(--lean) * -1));
+}
+
+.dlg.is-light {
+  --face: var(--larp-paper);
+  --ink: var(--larp-black);
+  --mute: #6e6a64;
+  --line: var(--larp-black);
+  --shade: var(--larp-black);
+}
+
+.dlg.is-light .dlg-face::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+}
+
+/* Regions */
+
+.dlg-head,
+.dlg-body,
+.dlg-foot {
+  position: relative;
+  z-index: 1;
+}
+
+.dlg-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 28px 0;
+}
+
+.dlg-kicker {
+  margin: 0 0 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.dlg-title {
+  margin: 0;
+  font-family: var(--dlg-font);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.dlg-body {
+  max-width: 28em;
+  margin: 0 auto;
+  padding: 14px 28px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--mute);
+}
+
+.dlg-body p {
+  margin: 0;
+}
+
+.dlg-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 28px 28px;
+}
+
+.dlg-foot .btn {
+  font-size: 14px;
+}
+
+.dlg-foot .btn-face {
+  min-height: 44px;
+  min-width: 6.2em;
+}
+
+/* Badge */
+
+.dlg-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 4px 0 14px;
+  border: 1px solid rgba(255, 176, 32, 0.45);
+  color: #ffb020;
+  background: rgba(255, 176, 32, 0.1);
+}
+
+.dlg-badge .dlg-ico,
+.dlg-badge svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.dlg-ico {
+  background: currentColor;
+  -webkit-mask: var(--asset) center / contain no-repeat;
+  mask: var(--asset) center / contain no-repeat;
+}
+
+/* Motion */
+
+.dlg-scrim[data-open] .dlg {
+  animation: larp-dlg-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes larp-dlg-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dlg-scrim[data-open] .dlg {
+    animation: none;
+  }
+}
