@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LARP UI — Dock</title>
+  <link rel="stylesheet" href="dock.css">
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      color-scheme: dark;
+    }
+    #fit {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    #screen {
+      width: 1920px;
+      height: 196px;
+      flex: 0 0 auto;
+      zoom: calc(100vw / 1920px);
+    }
+  </style>
+</head>
+<body>
+  <div id="fit">
+    <div id="screen" data-playing="true">
+      <footer class="dock">
+        <div class="zone zone-temp">
+          <div class="temp">
+            <div class="kicker">Flarn</div>
+            <div class="temp-controls">
+              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="1" aria-label="Flarn up">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="temp-val" id="val-flarn">72</div>
+              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="-1" aria-label="Flarn down">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <button type="button" class="glow" data-action="glow" data-which="flarn" aria-pressed="true" aria-label="Flarn glow"></button>
+          </div>
+          <div class="temp">
+            <div class="kicker">Marn</div>
+            <div class="temp-controls">
+              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="1" aria-label="Marn up">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="temp-val" id="val-marn">68</div>
+              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="-1" aria-label="Marn down">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <button type="button" class="glow" data-action="glow" data-which="marn" aria-pressed="false" aria-label="Marn glow"></button>
+          </div>
+        </div>
+
+        <div class="zone zone-media">
+          <button type="button" class="media-open" data-action="open-hest">
+            <div class="art dock-art art-0" id="dock-art"></div>
+            <div class="media-meta">
+              <div id="dock-title" class="track-title">Snarv of the Blim</div>
+              <div id="dock-artist" class="artist">Kex &amp; Plo</div>
+              <div class="progress"><span id="dock-bar" style="width:28%"></span></div>
+            </div>
+          </button>
+          <div class="transport">
+            <button type="button" data-action="prev" aria-label="Previous">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21 7 L9 16 L21 25 Z" fill="currentColor"/></svg>
+            </button>
+            <button type="button" data-action="play" aria-label="Pause">
+              <svg class="icon-play" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6 L26 16 L11 26 Z" fill="currentColor"/></svg>
+              <svg class="icon-pause" viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="6" width="5" height="20" rx="1" fill="currentColor"/><rect x="19" y="6" width="5" height="20" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button type="button" data-action="next" aria-label="Next">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7 L23 16 L11 25 Z" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="zone zone-side">
+          <label class="hush">
+            <span class="kicker">hush</span>
+            <input id="hush" type="range" min="0" max="100" value="36" aria-label="hush">
+          </label>
+          <button type="button" id="btn-apps" class="big-btn" data-action="sheet" data-sheet="apps" aria-label="apps" aria-pressed="false">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="4" y="18" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="18" width="10" height="10" rx="2" fill="currentColor"/></svg>
+          </button>
+          <button type="button" id="btn-controls" class="big-btn" data-action="sheet" data-sheet="controls" aria-label="controls" aria-pressed="false">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20M6 16h20M6 23h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="9" r="3" fill="currentColor"/><circle cx="21" cy="16" r="3" fill="currentColor"/><circle cx="15" cy="23" r="3" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
