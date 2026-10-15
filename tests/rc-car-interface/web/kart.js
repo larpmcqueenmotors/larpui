@@ -3,17 +3,9 @@
 const SCREEN_W = 1920;
 const SCREEN_H = 1080;
 
-const TRACKS = [
-  { title: 'Snarv of the Blim', artist: 'Kex & Plo' },
-  { title: 'Wulp Under Glass', artist: 'Harn Vell' },
-  { title: 'Ploq at Dusk', artist: 'Jorv' },
-  { title: 'Brim Static', artist: 'Nox Quor' }
-];
-
 const APPS = [
   { id: 'zindle', name: 'Zindle', icon: '<rect x="22" y="14" width="20" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 30c0 8 12 8 12 0" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="13" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="51" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 56h32" stroke="currentColor" stroke-width="2.5"/>' },
   { id: 'ploq', name: 'Ploq', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
-  { id: 'hest', name: 'Hest', icon: '<circle cx="32" cy="32" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="5" fill="currentColor"/>' },
   { id: 'varn', name: 'Varn', icon: '<path d="M14 20h36M14 32h36M14 44h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' },
   { id: 'jorv', name: 'Jorv', icon: '<path d="M12 20h40M12 32h40M12 44h40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="20" r="4" fill="currentColor"/><circle cx="42" cy="32" r="4" fill="currentColor"/><circle cx="28" cy="44" r="4" fill="currentColor"/>' },
   { id: 'kess', name: 'Kess', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="currentColor"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="currentColor"/>' },
@@ -32,10 +24,6 @@ const state = {
   flarn: 72,
   marn: 68,
   glow: { flarn: true, marn: false },
-  track: 0,
-  playing: true,
-  progress: 0.28,
-  duration: 46,
   sheet: null,
   app: 'zindle',
   mode: 'blim',
@@ -56,14 +44,6 @@ const el = {
   gaugeValue: document.getElementById('gauge-value'),
   flarn: document.getElementById('val-flarn'),
   marn: document.getElementById('val-marn'),
-  dockArt: document.getElementById('dock-art'),
-  hestArt: document.getElementById('hest-art'),
-  dockTitle: document.getElementById('dock-title'),
-  dockArtist: document.getElementById('dock-artist'),
-  hestTitle: document.getElementById('hest-title'),
-  hestArtist: document.getElementById('hest-artist'),
-  dockBar: document.getElementById('dock-bar'),
-  hestBar: document.getElementById('hest-bar'),
   btnApps: document.getElementById('btn-apps'),
   btnControls: document.getElementById('btn-controls'),
   sheetApps: document.getElementById('sheet-apps'),
@@ -99,11 +79,6 @@ function fit() {
   el.screen.style.transform = 'scale(' + scale + ')';
 }
 
-function paintArt(node, index) {
-  node.classList.remove('art-0', 'art-1', 'art-2', 'art-3');
-  node.classList.add('art-' + index);
-}
-
 function renderDrive() {
   document.querySelectorAll('.drive').forEach((button) => {
     button.setAttribute('aria-pressed', button.dataset.drive === state.drive ? 'true' : 'false');
@@ -126,26 +101,6 @@ function renderGlow() {
   document.querySelectorAll('[data-action="glow"]').forEach((button) => {
     button.setAttribute('aria-pressed', state.glow[button.dataset.which] ? 'true' : 'false');
   });
-}
-
-function renderMedia() {
-  const track = TRACKS[state.track];
-  el.dockTitle.textContent = track.title;
-  el.hestTitle.textContent = track.title;
-  el.dockArtist.textContent = track.artist;
-  el.hestArtist.textContent = track.artist;
-  paintArt(el.dockArt, state.track);
-  paintArt(el.hestArt, state.track);
-  el.screen.dataset.playing = state.playing ? 'true' : 'false';
-  document.querySelectorAll('[data-action="play"]').forEach((button) => {
-    button.setAttribute('aria-label', state.playing ? 'pause' : 'play');
-  });
-}
-
-function renderProgress() {
-  const width = (state.progress * 100) + '%';
-  el.dockBar.style.width = width;
-  el.hestBar.style.width = width;
 }
 
 function renderApp() {
@@ -309,26 +264,6 @@ el.screen.addEventListener('click', (event) => {
     return;
   }
 
-  if (action === 'open-hest') {
-    openApp('hest');
-    return;
-  }
-
-  if (action === 'prev' || action === 'next') {
-    const dir = action === 'next' ? 1 : -1;
-    state.track = (state.track + dir + TRACKS.length) % TRACKS.length;
-    state.progress = 0;
-    renderMedia();
-    renderProgress();
-    return;
-  }
-
-  if (action === 'play') {
-    state.playing = !state.playing;
-    renderMedia();
-    return;
-  }
-
   if (action === 'sheet') {
     const name = target.dataset.sheet;
     state.sheet = state.sheet === name ? null : name;
@@ -403,16 +338,6 @@ function frame(now) {
   el.screen.dataset.moving = state.speed > 1 ? 'true' : 'false';
   paintSpeed(display);
 
-  if (state.playing) {
-    state.progress += dt / state.duration;
-    if (state.progress >= 1) {
-      state.progress = 0;
-      state.track = (state.track + 1) % TRACKS.length;
-      renderMedia();
-    }
-    renderProgress();
-  }
-
   tickClock(new Date());
 
   for (let i = 0; i < state.timers.length; i += 1) {
@@ -442,8 +367,6 @@ fit();
 renderDrive();
 renderTemps();
 renderGlow();
-renderMedia();
-renderProgress();
 renderApp();
 renderSheet();
 renderMode();

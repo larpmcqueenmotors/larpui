@@ -8,16 +8,16 @@
 </head>
 <body>
   <div id="fit">
-    <div id="screen" data-playing="true" data-moving="true" data-drive="zor">
+    <div id="screen" data-moving="true" data-drive="zor">
       <header class="status">
         <time class="clock" id="clock" datetime="">
           <span id="clock-hm">2:18</span><span id="clock-s" class="clock-s">:00</span>
         </time>
         <nav class="drives" aria-label="drive">
-          <button type="button" class="drive" data-action="drive" data-drive="nul" aria-pressed="false">Nul</button>
-          <button type="button" class="drive" data-action="drive" data-drive="snar" aria-pressed="false">Snar</button>
-          <button type="button" class="drive" data-action="drive" data-drive="vex" aria-pressed="false">Vex</button>
-          <button type="button" class="drive" data-action="drive" data-drive="zor" aria-pressed="true">Zor</button>
+          <button type="button" class="drive" data-action="drive" data-drive="nul" aria-pressed="false"></button>
+          <button type="button" class="drive" data-action="drive" data-drive="snar" aria-pressed="false"></button>
+          <button type="button" class="drive" data-action="drive" data-drive="vex" aria-pressed="false"></button>
+          <button type="button" class="drive" data-action="drive" data-drive="zor" aria-pressed="true"></button>
         </nav>
         <div class="status-side">
           <div class="meter" aria-hidden="true"><span></span></div>
@@ -121,27 +121,6 @@
           </svg>
         </section>
 
-        <section class="view view-hest" data-app="hest">
-          <div class="art hest-art art-0" id="hest-art"></div>
-          <div class="hest-copy">
-            <div id="hest-title" class="hest-title">Snarv of the Blim</div>
-            <div id="hest-artist" class="hest-artist">Kex &amp; Plo</div>
-            <div class="progress hest-progress"><span id="hest-bar" style="width:28%"></span></div>
-            <div class="transport hest-transport">
-              <button type="button" data-action="prev" aria-label="Previous">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21 7 L9 16 L21 25 Z" fill="currentColor"/></svg>
-              </button>
-              <button type="button" data-action="play" aria-label="Pause">
-                <svg class="icon-play" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6 L26 16 L11 26 Z" fill="currentColor"/></svg>
-                <svg class="icon-pause" viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="6" width="5" height="20" rx="1" fill="currentColor"/><rect x="19" y="6" width="5" height="20" rx="1" fill="currentColor"/></svg>
-              </button>
-              <button type="button" data-action="next" aria-label="Next">
-                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7 L23 16 L11 25 Z" fill="currentColor"/></svg>
-              </button>
-            </div>
-          </div>
-        </section>
-
         <section class="view view-varn" data-app="varn" id="varn-list"></section>
 
         <section class="view view-jorv" data-app="jorv">
@@ -220,29 +199,6 @@
               </button>
             </div>
             <button type="button" class="glow" data-action="glow" data-which="marn" aria-pressed="false" aria-label="Marn glow"></button>
-          </div>
-        </div>
-
-        <div class="zone zone-media">
-          <button type="button" class="media-open" data-action="open-hest">
-            <div class="art dock-art art-0" id="dock-art"></div>
-            <div class="media-meta">
-              <div id="dock-title" class="track-title">Snarv of the Blim</div>
-              <div id="dock-artist" class="artist">Kex &amp; Plo</div>
-              <div class="progress"><span id="dock-bar" style="width:28%"></span></div>
-            </div>
-          </button>
-          <div class="transport">
-            <button type="button" data-action="prev" aria-label="Previous">
-              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21 7 L9 16 L21 25 Z" fill="currentColor"/></svg>
-            </button>
-            <button type="button" data-action="play" aria-label="Pause">
-              <svg class="icon-play" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6 L26 16 L11 26 Z" fill="currentColor"/></svg>
-              <svg class="icon-pause" viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="6" width="5" height="20" rx="1" fill="currentColor"/><rect x="19" y="6" width="5" height="20" rx="1" fill="currentColor"/></svg>
-            </button>
-            <button type="button" data-action="next" aria-label="Next">
-              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7 L23 16 L11 25 Z" fill="currentColor"/></svg>
-            </button>
           </div>
         </div>
 
