@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quor-7</title>
+  <link rel="stylesheet" href="kart.css">
+</head>
+<body>
+  <div id="fit">
+    <div id="screen" data-playing="true" data-moving="true" data-drive="zor">
+      <header class="status">
+        <time class="clock" id="clock" datetime="">
+          <span id="clock-hm">2:18</span><span id="clock-s" class="clock-s">:00</span>
+        </time>
+        <nav class="drives" aria-label="drive">
+          <button type="button" class="drive" data-action="drive" data-drive="nul" aria-pressed="false">Nul</button>
+          <button type="button" class="drive" data-action="drive" data-drive="snar" aria-pressed="false">Snar</button>
+          <button type="button" class="drive" data-action="drive" data-drive="vex" aria-pressed="false">Vex</button>
+          <button type="button" class="drive" data-action="drive" data-drive="zor" aria-pressed="true">Zor</button>
+        </nav>
+        <div class="status-side">
+          <div class="meter" aria-hidden="true"><span></span></div>
+          <span class="venn">312 venn</span>
+          <span class="status-rule" aria-hidden="true"></span>
+          <span id="mode-read" class="mode-read">blim</span>
+        </div>
+      </header>
+
+      <main class="stage">
+        <section class="view view-zindle is-on" data-app="zindle">
+          <div class="lane-field">
+            <div class="lane">
+              <div class="lane-dashes"></div>
+              <svg class="kart" viewBox="0 0 360 520" aria-hidden="true">
+                <g class="wing">
+                  <rect x="36" y="448" width="288" height="14" rx="2" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
+                  <rect x="36" y="436" width="10" height="38" rx="1" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
+                  <rect x="314" y="436" width="10" height="38" rx="1" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
+                </g>
+                <rect x="122" y="132" width="116" height="250" rx="48" fill="#141416" stroke="rgba(243,240,232,0.55)" stroke-width="2.5"/>
+                <line x1="180" y1="146" x2="180" y2="178" stroke="#f50000" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="180" cy="196" r="15" fill="none" stroke="rgba(243,240,232,0.55)" stroke-width="3"/>
+                <rect x="156" y="214" width="48" height="92" rx="16" fill="#070708" stroke="rgba(243,240,232,0.35)" stroke-width="2"/>
+                <path d="M148 236 Q180 328 212 236" fill="none" stroke="rgba(243,240,232,0.88)" stroke-width="7" stroke-linecap="round"/>
+                <g class="wheel" transform="translate(58,188)">
+                  <circle r="44" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
+                  <g class="spin">
+                    <line x1="0" y1="-22" x2="0" y2="22" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <line x1="-22" y1="0" x2="22" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <circle r="12" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
+                  </g>
+                </g>
+                <g class="wheel" transform="translate(302,188)">
+                  <circle r="44" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
+                  <g class="spin">
+                    <line x1="0" y1="-22" x2="0" y2="22" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <line x1="-22" y1="0" x2="22" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <circle r="12" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
+                  </g>
+                </g>
+                <g class="wheel" transform="translate(64,368)">
+                  <circle r="46" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
+                  <g class="spin">
+                    <line x1="0" y1="-24" x2="0" y2="24" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <circle r="13" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
+                  </g>
+                </g>
+                <g class="wheel" transform="translate(296,368)">
+                  <circle r="46" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
+                  <g class="spin">
+                    <line x1="0" y1="-24" x2="0" y2="24" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
+                    <circle r="13" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <aside class="rail">
+            <div class="card speed-card">
+              <svg class="gauge" viewBox="0 0 400 360" aria-hidden="true">
+                <path id="gauge-track" fill="none" stroke="rgba(243,240,232,0.12)" stroke-width="3"></path>
+                <path id="gauge-value" fill="none" stroke="#f50000" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+              <div class="speed-read">
+                <div id="speed" class="speed-num">64</div>
+                <div class="speed-unit">glim</div>
+              </div>
+            </div>
+            <div class="card stats">
+              <div class="stat"><span>grelp</span><b>1.84</b></div>
+              <div class="stat"><span>tarn</span><b>42</b></div>
+              <div class="stat"><span>yowl</span><b>09</b></div>
+              <div class="venn-row">
+                <div class="meter meter-lg" aria-hidden="true"><span></span></div>
+                <span>312 venn</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="view view-ploq" data-app="ploq">
+          <svg class="map" viewBox="0 0 1600 780" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path d="M100 600 C240 620 280 220 520 200 S780 460 980 380 S1180 140 1380 240 S1520 400 1540 320" fill="none" stroke="rgba(243,240,232,0.08)" stroke-width="18" stroke-linecap="round"/>
+            <path id="route" d="M100 600 C240 620 280 220 520 200 S780 460 980 380 S1180 140 1380 240 S1520 400 1540 320" fill="none" stroke="rgba(243,240,232,0.55)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="140" cy="560" r="5" fill="rgba(243,240,232,0.55)"/>
+            <circle cx="520" cy="200" r="5" fill="rgba(243,240,232,0.55)"/>
+            <circle cx="980" cy="380" r="5" fill="rgba(243,240,232,0.55)"/>
+            <circle cx="1320" cy="200" r="5" fill="rgba(243,240,232,0.55)"/>
+            <circle cx="1500" cy="340" r="5" fill="rgba(243,240,232,0.55)"/>
+            <g class="places">
+              <text x="140" y="530">Grelp</text>
+              <text x="520" y="168">Tarn</text>
+              <text x="980" y="430">Yowl</text>
+              <text x="1320" y="168">Fesk</text>
+              <text x="1500" y="390">Miv</text>
+            </g>
+            <circle id="dot" cx="140" cy="560" r="11" fill="#f3f0e8"/>
+          </svg>
+        </section>
+
+        <section class="view view-hest" data-app="hest">
+          <div class="art hest-art art-0" id="hest-art"></div>
+          <div class="hest-copy">
+            <div id="hest-title" class="hest-title">Snarv of the Blim</div>
+            <div id="hest-artist" class="hest-artist">Kex &amp; Plo</div>
+            <div class="progress hest-progress"><span id="hest-bar" style="width:28%"></span></div>
+            <div class="transport hest-transport">
+              <button type="button" data-action="prev" aria-label="Previous">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21 7 L9 16 L21 25 Z" fill="currentColor"/></svg>
+              </button>
+              <button type="button" data-action="play" aria-label="Pause">
+                <svg class="icon-play" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6 L26 16 L11 26 Z" fill="currentColor"/></svg>
+                <svg class="icon-pause" viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="6" width="5" height="20" rx="1" fill="currentColor"/><rect x="19" y="6" width="5" height="20" rx="1" fill="currentColor"/></svg>
+              </button>
+              <button type="button" data-action="next" aria-label="Next">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7 L23 16 L11 25 Z" fill="currentColor"/></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view view-varn" data-app="varn" id="varn-list"></section>
+
+        <section class="view view-jorv" data-app="jorv">
+          <div class="jorv-row">
+            <span>brim</span>
+            <input class="slider-lg" type="range" min="0" max="100" value="38" data-jorv="brim" aria-label="brim">
+            <b id="jorv-brim">38</b>
+          </div>
+          <div class="jorv-row">
+            <span>nox</span>
+            <input class="slider-lg" type="range" min="0" max="100" value="64" data-jorv="nox" aria-label="nox">
+            <b id="jorv-nox">64</b>
+          </div>
+          <div class="jorv-row">
+            <span>wex</span>
+            <input class="slider-lg" type="range" min="0" max="100" value="22" data-jorv="wex" aria-label="wex">
+            <b id="jorv-wex">22</b>
+          </div>
+        </section>
+
+        <section class="view view-kess" data-app="kess" id="kess-board"></section>
+
+        <section class="view view-wulp" data-app="wulp">
+          <div class="wulp-tile"><span>grelp</span><b>18</b></div>
+          <div class="wulp-tile"><span>tarn</span><b>4.2</b></div>
+          <div class="wulp-tile"><span>yowl</span><b>71</b></div>
+          <div class="wulp-tile"><span>fesk</span><b>9</b></div>
+        </section>
+
+        <section class="view view-drov" data-app="drov">
+          <div class="drov-card"><span>nox</span><b id="timer-0">02:05</b></div>
+          <div class="drov-card"><span>vell</span><b id="timer-1">00:48</b></div>
+          <div class="drov-card"><span>harn</span><b id="timer-2">05:02</b></div>
+        </section>
+
+        <div class="sheet sheet-apps" id="sheet-apps" role="dialog" aria-label="apps" aria-hidden="true"></div>
+
+        <div class="sheet sheet-controls" id="sheet-controls" role="dialog" aria-label="controls" aria-hidden="true">
+          <div class="segment" role="group" aria-label="mode">
+            <button type="button" data-action="mode" data-mode="blim" aria-pressed="true">Blim</button>
+            <button type="button" data-action="mode" data-mode="plex" aria-pressed="false">Plex</button>
+            <button type="button" data-action="mode" data-mode="vorn" aria-pressed="false">Vorn</button>
+          </div>
+          <div class="glim-block">
+            <div class="glim-line"><span>Glim</span><b id="glim-val">64</b></div>
+            <input id="glim" class="slider-lg" type="range" min="0" max="100" value="64" aria-label="glim">
+          </div>
+          <div class="tile-grid" id="control-tiles"></div>
+        </div>
+      </main>
+
+      <footer class="dock">
+        <div class="zone zone-temp">
+          <div class="temp">
+            <div class="kicker">Flarn</div>
+            <div class="temp-controls">
+              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="1" aria-label="Flarn up">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="temp-val" id="val-flarn">72</div>
+              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="-1" aria-label="Flarn down">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <button type="button" class="glow" data-action="glow" data-which="flarn" aria-pressed="true" aria-label="Flarn glow"></button>
+          </div>
+          <div class="temp">
+            <div class="kicker">Marn</div>
+            <div class="temp-controls">
+              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="1" aria-label="Marn up">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="temp-val" id="val-marn">68</div>
+              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="-1" aria-label="Marn down">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <button type="button" class="glow" data-action="glow" data-which="marn" aria-pressed="false" aria-label="Marn glow"></button>
+          </div>
+        </div>
+
+        <div class="zone zone-media">
+          <button type="button" class="media-open" data-action="open-hest">
+            <div class="art dock-art art-0" id="dock-art"></div>
+            <div class="media-meta">
+              <div id="dock-title" class="track-title">Snarv of the Blim</div>
+              <div id="dock-artist" class="artist">Kex &amp; Plo</div>
+              <div class="progress"><span id="dock-bar" style="width:28%"></span></div>
+            </div>
+          </button>
+          <div class="transport">
+            <button type="button" data-action="prev" aria-label="Previous">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M21 7 L9 16 L21 25 Z" fill="currentColor"/></svg>
+            </button>
+            <button type="button" data-action="play" aria-label="Pause">
+              <svg class="icon-play" viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6 L26 16 L11 26 Z" fill="currentColor"/></svg>
+              <svg class="icon-pause" viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="6" width="5" height="20" rx="1" fill="currentColor"/><rect x="19" y="6" width="5" height="20" rx="1" fill="currentColor"/></svg>
+            </button>
+            <button type="button" data-action="next" aria-label="Next">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 7 L23 16 L11 25 Z" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="zone zone-side">
+          <label class="hush">
+            <span class="kicker">hush</span>
+            <input id="hush" type="range" min="0" max="100" value="36" aria-label="hush">
+          </label>
+          <button type="button" id="btn-apps" class="big-btn" data-action="sheet" data-sheet="apps" aria-label="apps" aria-pressed="false">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="4" y="18" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="18" width="10" height="10" rx="2" fill="currentColor"/></svg>
+          </button>
+          <button type="button" id="btn-controls" class="big-btn" data-action="sheet" data-sheet="controls" aria-label="controls" aria-pressed="false">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20M6 16h20M6 23h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="9" r="3" fill="currentColor"/><circle cx="21" cy="16" r="3" fill="currentColor"/><circle cx="15" cy="23" r="3" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="kart.js"></script>
+</body>
+</html>

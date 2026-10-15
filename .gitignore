@@ -1,0 +1,6 @@
+# CEF distribution and build products exceed GitHub's 100MB file limit.
+# They are downloaded by CMake; do not commit them or enable Git LFS for them.
+tests/rc-car-interface/third_party/
+tests/rc-car-interface/build/
+tests/rc-car-interface/.cache/
+*.tar.bz2

@@ -229,42 +229,6 @@
   min-width: 6.2em;
 }
 
-/* Dark plates retint foot buttons (mirrors buttons.css .on-dark) */
-
-.dlg:not(.is-light) .btn-primary {
-  --shade: #5c0000;
-}
-
-.dlg:not(.is-light) .btn-secondary {
-  --face: #2c2c2c;
-  --face-hover: #3a3a3a;
-  --face-down: #111;
-  --shade: #000;
-}
-
-.dlg:not(.is-light) .btn-outline {
-  --face: transparent;
-  --face-hover: var(--larp-white);
-  --face-down: #f0f0f0;
-  --ink: var(--larp-white);
-  --ink-hover: var(--larp-black);
-  --ink-down: var(--larp-black);
-  --shade: var(--larp-red);
-  --mark: var(--larp-red);
-  --mark-hover: var(--larp-red);
-  --mark-down: var(--larp-red);
-  --ring-color: var(--larp-white);
-  --focus: var(--larp-white);
-}
-
-.dlg:not(.is-light) .btn-ghost {
-  --ink: var(--larp-white);
-  --ink-hover: var(--larp-red);
-  --ink-down: #ff6a5c;
-  --mark: var(--larp-red);
-  --focus: var(--larp-white);
-}
-
 /* Badge */
 
 .dlg-badge {

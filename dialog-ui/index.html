@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LARP UI — Dialog</title>
+  <link rel="stylesheet" href="../buttons/buttons.css">
+  <link rel="stylesheet" href="dialogs.css">
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="dlg-scrim" data-open>
+    <div class="dlg" role="alertdialog" aria-modal="true" aria-labelledby="dlg-title" aria-describedby="dlg-desc">
+      <span class="dlg-shadow" aria-hidden="true"></span>
+      <div class="dlg-face">
+        <div class="dlg-unskew">
+          <header class="dlg-head">
+            <span class="dlg-badge" aria-hidden="true">
+              <span class="dlg-ico" style="--asset: url('../warning-icons/warning.svg')"></span>
+            </span>
+            <p class="dlg-kicker">Caution</p>
+            <h2 class="dlg-title" id="dlg-title">Check systems</h2>
+          </header>
+          <div class="dlg-body" id="dlg-desc">
+            <p>One or more vehicle systems need attention before you continue.</p>
+          </div>
+          <footer class="dlg-foot">
+            <button class="btn btn-ghost" type="button">
+              <span class="btn-shadow" aria-hidden="true"></span>
+              <span class="btn-face"><span class="btn-core">Cancel</span></span>
+            </button>
+            <button class="btn btn-primary" type="button">
+              <span class="btn-shadow" aria-hidden="true"></span>
+              <span class="btn-face"><span class="btn-core">Continue</span></span>
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

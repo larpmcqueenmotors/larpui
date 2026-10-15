@@ -249,7 +249,7 @@
   --face: transparent;
   --face-hover: transparent;
   --face-down: transparent;
-  --ink: var(--larp-black);
+  /* Ink inherits from context (:root / .on-dark / parent --ink) */
   --ink-hover: #c80000;
   --ink-down: #9a0000;
   --mark: var(--larp-red);
