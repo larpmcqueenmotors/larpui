@@ -5,13 +5,33 @@ const SCREEN_H = 1080;
 
 const APPS = [
   { id: 'zindle', name: 'Main Screen', icon: '<rect x="22" y="14" width="20" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 30c0 8 12 8 12 0" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="13" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="51" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 56h32" stroke="currentColor" stroke-width="2.5"/>' },
-  { id: 'ploq', name: 'Graph', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
-  { id: 'varn', name: 'Varn', icon: '<path d="M14 20h36M14 32h36M14 44h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' },
-  { id: 'wulp', name: 'Wulp', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>' }
+  { id: 'ploq', name: 'Map', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
+  { id: 'varn', name: 'Media', icon: '<path d="M14 20h36M14 32h36M14 44h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' },
+  { id: 'wulp', name: 'Energy', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>' }
 ];
 
 const TOGGLES = ['brim', 'nox', 'wex', 'plim', 'harn', 'kess', 'vell', 'quor'];
-const VARN = ['Grelp spool', 'Tarn latch', 'Yowl braid', 'Fesk pin', 'Miv collar', 'Snarv rib', 'Quor bead', 'Ploq seam'];
+const TOGGLE_LABELS = {
+  brim: 'Lights',
+  nox: 'Lock',
+  wex: 'Wipers',
+  plim: 'Defrost',
+  harn: 'Camera',
+  kess: 'Sentry',
+  vell: 'Autopark',
+  quor: 'Summon'
+};
+const MODE_LABELS = { blim: 'Chill', plex: 'Sport', vorn: 'Race' };
+const VARN = [
+  'Morning Mix',
+  'Night Drive',
+  'Garage Beats',
+  'Highway Hits',
+  'City Loop',
+  'Rain Session',
+  'Charge Chill',
+  'Open Road'
+];
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -133,7 +153,7 @@ function renderSheet() {
 
 function renderMode() {
   const read = document.getElementById('mode-read');
-  if (read) read.textContent = state.mode;
+  if (read) read.textContent = MODE_LABELS[state.mode] || state.mode;
   document.querySelectorAll('[data-action="mode"]').forEach((button) => {
     button.setAttribute('aria-pressed', button.dataset.mode === state.mode ? 'true' : 'false');
   });
@@ -203,7 +223,7 @@ function buildChrome() {
   });
 
   const tileMarkup = TOGGLES.map((name) => {
-    const label = name.charAt(0).toUpperCase() + name.slice(1);
+    const label = TOGGLE_LABELS[name] || name;
     return '<button type="button" class="tile" data-action="toggle" data-toggle="' + name + '">' + label + '</button>';
   }).join('');
   document.getElementById('control-tiles').innerHTML = tileMarkup;
