@@ -8,27 +8,27 @@
 </head>
 <body>
   <div id="fit">
-    <div id="screen" data-moving="true" data-drive="zor">
+    <div id="screen" data-moving="true" data-drive="d">
       <header class="status">
         <time class="clock" id="clock" datetime="">
           <span id="clock-hm">2:18</span><span id="clock-s" class="clock-s">:00</span>
         </time>
         <nav class="drives" aria-label="drive">
-          <button type="button" class="drive" data-action="drive" data-drive="nul" aria-pressed="false">P</button>
-          <button type="button" class="drive" data-action="drive" data-drive="snar" aria-pressed="false">R</button>
-          <button type="button" class="drive" data-action="drive" data-drive="vex" aria-pressed="false">N</button>
-          <button type="button" class="drive" data-action="drive" data-drive="zor" aria-pressed="true">D</button>
+          <button type="button" class="drive" data-action="drive" data-drive="p" aria-pressed="false">P</button>
+          <button type="button" class="drive" data-action="drive" data-drive="r" aria-pressed="false">R</button>
+          <button type="button" class="drive" data-action="drive" data-drive="n" aria-pressed="false">N</button>
+          <button type="button" class="drive" data-action="drive" data-drive="d" aria-pressed="true">D</button>
         </nav>
         <div class="status-side">
           <div class="meter" aria-hidden="true"><span></span></div>
-          <span class="venn">312 mi</span>
+          <span class="range">312 mi</span>
           <span class="status-rule" aria-hidden="true"></span>
           <span id="mode-read" class="mode-read">Chill</span>
         </div>
       </header>
 
       <main class="stage">
-        <section class="view view-zindle is-on" data-app="zindle">
+        <section class="view view-main is-on" data-app="main">
           <div class="lane-field">
             <div class="lane">
               <div class="lane-dashes"></div>
@@ -93,7 +93,7 @@
               <div class="stat"><span>Trip</span><b>1.84</b></div>
               <div class="stat"><span>Avg</span><b>42</b></div>
               <div class="stat"><span>Time</span><b>09</b></div>
-              <div class="venn-row">
+              <div class="range-row">
                 <div class="meter meter-lg" aria-hidden="true"><span></span></div>
                 <span>312 mi</span>
               </div>
@@ -101,7 +101,7 @@
           </aside>
         </section>
 
-        <section class="view view-ploq" data-app="ploq">
+        <section class="view view-map" data-app="map">
           <svg class="map" viewBox="0 0 1600 780" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <path d="M100 600 C240 620 280 220 520 200 S780 460 980 380 S1180 140 1380 240 S1520 400 1540 320" fill="none" stroke="rgba(243,240,232,0.08)" stroke-width="18" stroke-linecap="round"/>
             <path id="route" d="M100 600 C240 620 280 220 520 200 S780 460 980 380 S1180 140 1380 240 S1520 400 1540 320" fill="none" stroke="rgba(243,240,232,0.55)" stroke-width="3" stroke-linecap="round"/>
@@ -121,24 +121,24 @@
           </svg>
         </section>
 
-        <section class="view view-wulp" data-app="wulp">
-          <div class="wulp-tile"><span>Trip</span><b>18</b></div>
-          <div class="wulp-tile"><span>Avg</span><b>4.2</b></div>
-          <div class="wulp-tile"><span>Time</span><b>71</b></div>
-          <div class="wulp-tile"><span>Laps</span><b>9</b></div>
+        <section class="view view-energy" data-app="energy">
+          <div class="energy-tile"><span>Trip</span><b>18</b></div>
+          <div class="energy-tile"><span>Avg</span><b>4.2</b></div>
+          <div class="energy-tile"><span>Time</span><b>71</b></div>
+          <div class="energy-tile"><span>Laps</span><b>9</b></div>
         </section>
 
         <div class="sheet sheet-apps" id="sheet-apps" role="dialog" aria-label="apps" aria-hidden="true"></div>
 
         <div class="sheet sheet-controls" id="sheet-controls" role="dialog" aria-label="controls" aria-hidden="true">
           <div class="segment" role="group" aria-label="mode">
-            <button type="button" data-action="mode" data-mode="blim" aria-pressed="true">Chill</button>
-            <button type="button" data-action="mode" data-mode="plex" aria-pressed="false">Sport</button>
-            <button type="button" data-action="mode" data-mode="vorn" aria-pressed="false">Race</button>
+            <button type="button" data-action="mode" data-mode="chill" aria-pressed="true">Chill</button>
+            <button type="button" data-action="mode" data-mode="sport" aria-pressed="false">Sport</button>
+            <button type="button" data-action="mode" data-mode="race" aria-pressed="false">Race</button>
           </div>
-          <div class="glim-block">
-            <div class="glim-line"><span>Speed</span><b id="glim-val">64</b></div>
-            <input id="glim" class="slider-lg" type="range" min="0" max="100" value="64" aria-label="speed">
+          <div class="speed-limit-block">
+            <div class="speed-limit-line"><span>Speed</span><b id="speed-limit-val">64</b></div>
+            <input id="speed-limit" class="slider-lg" type="range" min="0" max="100" value="64" aria-label="speed">
           </div>
           <div class="tile-grid" id="control-tiles"></div>
         </div>
@@ -149,35 +149,35 @@
           <div class="temp">
             <div class="kicker">Driver</div>
             <div class="temp-controls">
-              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="1" aria-label="Driver up">
+              <button type="button" class="chev" data-action="temp" data-seat="driver" data-step="1" aria-label="Driver up">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
-              <div class="temp-val" id="val-flarn">72</div>
-              <button type="button" class="chev" data-action="temp" data-which="flarn" data-step="-1" aria-label="Driver down">
+              <div class="temp-val" id="val-driver">72</div>
+              <button type="button" class="chev" data-action="temp" data-seat="driver" data-step="-1" aria-label="Driver down">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </div>
-            <button type="button" class="glow" data-action="glow" data-which="flarn" aria-pressed="true" aria-label="Driver glow"></button>
+            <button type="button" class="heat" data-action="heat" data-seat="driver" aria-pressed="true" aria-label="Driver heat"></button>
           </div>
           <div class="temp">
             <div class="kicker">Passenger</div>
             <div class="temp-controls">
-              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="1" aria-label="Passenger up">
+              <button type="button" class="chev" data-action="temp" data-seat="passenger" data-step="1" aria-label="Passenger up">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
-              <div class="temp-val" id="val-marn">68</div>
-              <button type="button" class="chev" data-action="temp" data-which="marn" data-step="-1" aria-label="Passenger down">
+              <div class="temp-val" id="val-passenger">68</div>
+              <button type="button" class="chev" data-action="temp" data-seat="passenger" data-step="-1" aria-label="Passenger down">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </div>
-            <button type="button" class="glow" data-action="glow" data-which="marn" aria-pressed="false" aria-label="Passenger glow"></button>
+            <button type="button" class="heat" data-action="heat" data-seat="passenger" aria-pressed="false" aria-label="Passenger heat"></button>
           </div>
         </div>
 
         <div class="zone zone-side">
-          <label class="hush">
+          <label class="volume">
             <span class="kicker">Volume</span>
-            <input id="hush" type="range" min="0" max="100" value="36" aria-label="volume">
+            <input id="volume" type="range" min="0" max="100" value="36" aria-label="volume">
           </label>
           <button type="button" id="btn-apps" class="big-btn" data-action="sheet" data-sheet="apps" aria-label="apps" aria-pressed="false">
             <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="4" width="10" height="10" rx="2" fill="currentColor"/><rect x="4" y="18" width="10" height="10" rx="2" fill="currentColor"/><rect x="18" y="18" width="10" height="10" rx="2" fill="currentColor"/></svg>

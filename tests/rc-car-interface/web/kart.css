@@ -54,7 +54,7 @@ svg { display: block; }
   position: relative;
 }
 
-.kicker, .stat span, .mode-read, .speed-unit, .wulp-tile span {
+.kicker, .stat span, .mode-read, .speed-unit, .energy-tile span {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--dim);
@@ -100,7 +100,7 @@ svg { display: block; }
   position: relative;
 }
 .drive[aria-pressed="true"] { color: var(--ink); }
-.drive[data-drive="zor"][aria-pressed="true"] { color: var(--red); }
+.drive[data-drive="d"][aria-pressed="true"] { color: var(--red); }
 .drive[aria-pressed="true"]::after {
   content: "";
   position: absolute;
@@ -117,7 +117,7 @@ svg { display: block; }
   justify-content: flex-end;
   gap: 16px;
 }
-.venn { font-size: 22px; font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
+.range { font-size: 22px; font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
 .status-rule { width: 1px; height: 18px; background: var(--line); }
 .mode-read { font-size: 14px; text-transform: lowercase; letter-spacing: 0.18em; }
 
@@ -150,7 +150,7 @@ svg { display: block; }
 }
 .view.is-on { display: block; }
 
-.view-zindle.is-on {
+.view-main.is-on {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: 28px;
@@ -269,13 +269,13 @@ svg { display: block; }
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
 }
-.venn-row {
+.range-row {
   display: flex;
   align-items: center;
   gap: 22px;
   padding-top: 8px;
 }
-.venn-row span { font-size: 22px; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; }
+.range-row span { font-size: 22px; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; }
 
 .map { width: 100%; height: 100%; }
 .places text {
@@ -286,14 +286,14 @@ svg { display: block; }
   text-anchor: middle;
 }
 
-.view-wulp.is-on {
+.view-energy.is-on {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 22px;
   padding: 28px;
 }
-.wulp-tile {
+.energy-tile {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 28px;
@@ -303,7 +303,7 @@ svg { display: block; }
   padding: 40px;
   gap: 8px;
 }
-.wulp-tile b {
+.energy-tile b {
   font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
   font-size: 108px;
   font-weight: 200;
@@ -358,9 +358,9 @@ svg { display: block; }
 .app-pick.is-current .app-name { color: var(--ink); }
 .app-pick.is-current .app-icon { outline: 2px solid var(--ink); outline-offset: 8px; }
 
-.icon-zindle { background: #7a3333; }
-.icon-ploq { background: #2c4a5c; }
-.icon-wulp { background: #6a4630; }
+.icon-main { background: #7a3333; }
+.icon-map { background: #2c4a5c; }
+.icon-energy { background: #6a4630; }
 
 .sheet-controls {
   display: flex;
@@ -389,19 +389,19 @@ svg { display: block; }
   background: var(--ink);
   color: var(--dock);
 }
-.glim-block { display: flex; flex-direction: column; gap: 8px; }
-.glim-line {
+.speed-limit-block { display: flex; flex-direction: column; gap: 8px; }
+.speed-limit-line {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
-.glim-line span {
+.speed-limit-line span {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--dim);
   font-size: 14px;
 }
-.glim-line b {
+.speed-limit-line b {
   font-size: 48px;
   font-weight: 200;
   font-variant-numeric: tabular-nums;
@@ -464,13 +464,13 @@ svg { display: block; }
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
-.glow {
+.heat {
   width: 54px;
   height: 22px;
   border-radius: 999px;
   border: 1px solid rgba(243, 240, 232, 0.22);
 }
-.glow[aria-pressed="true"] {
+.heat[aria-pressed="true"] {
   background: var(--ink);
   border-color: transparent;
   box-shadow: 0 0 16px rgba(243, 240, 232, 0.35);
@@ -503,14 +503,14 @@ svg { display: block; }
   gap: 18px;
   padding: 0 32px 0 28px;
 }
-.hush {
+.volume {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.hush .kicker { text-transform: lowercase; letter-spacing: 0.18em; }
+.volume .kicker { text-transform: lowercase; letter-spacing: 0.18em; }
 
 input[type="range"] {
   -webkit-appearance: none;
