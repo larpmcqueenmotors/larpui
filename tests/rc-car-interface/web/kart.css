@@ -54,7 +54,7 @@ svg { display: block; }
   position: relative;
 }
 
-.kicker, .stat span, .mode-read, .speed-unit, .wulp-tile span, .drov-card span, .jorv-row span {
+.kicker, .stat span, .mode-read, .speed-unit, .wulp-tile span {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--dim);
@@ -316,36 +316,6 @@ svg { display: block; }
   border-color: var(--ink);
 }
 
-.view-jorv.is-on {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 48px;
-  padding: 48px 120px;
-}
-.jorv-row {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr) 120px;
-  align-items: center;
-  gap: 28px;
-}
-.jorv-row b {
-  font-size: 56px;
-  font-weight: 200;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-
-.view-kess.is-on {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: 1fr 1fr;
-  gap: 22px;
-  padding: 32px 40px;
-}
-.view-kess .tile { font-size: 32px; border-radius: 32px; }
-
 .view-wulp.is-on {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -369,30 +339,6 @@ svg { display: block; }
   font-weight: 200;
   line-height: 0.9;
   letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-
-.view-drov.is-on {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  padding: 36px 40px;
-}
-.drov-card {
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-}
-.drov-card b {
-  font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
-  font-size: 96px;
-  font-weight: 200;
-  letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
   color: var(--ink);
 }
@@ -445,10 +391,7 @@ svg { display: block; }
 .icon-zindle { background: #7a3333; }
 .icon-ploq { background: #2c4a5c; }
 .icon-varn { background: #3d5346; }
-.icon-jorv { background: #4c3e5c; }
-.icon-kess { background: #2e4e4a; }
 .icon-wulp { background: #6a4630; }
-.icon-drov { background: #3c4452; }
 
 .sheet-controls {
   display: flex;

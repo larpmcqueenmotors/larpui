@@ -4,13 +4,10 @@ const SCREEN_W = 1920;
 const SCREEN_H = 1080;
 
 const APPS = [
-  { id: 'zindle', name: 'Zindle', icon: '<rect x="22" y="14" width="20" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 30c0 8 12 8 12 0" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="13" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="51" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 56h32" stroke="currentColor" stroke-width="2.5"/>' },
-  { id: 'ploq', name: 'Ploq', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
+  { id: 'zindle', name: 'Main Screen', icon: '<rect x="22" y="14" width="20" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 30c0 8 12 8 12 0" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="13" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="51" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 56h32" stroke="currentColor" stroke-width="2.5"/>' },
+  { id: 'ploq', name: 'Graph', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
   { id: 'varn', name: 'Varn', icon: '<path d="M14 20h36M14 32h36M14 44h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' },
-  { id: 'jorv', name: 'Jorv', icon: '<path d="M12 20h40M12 32h40M12 44h40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="20" r="4" fill="currentColor"/><circle cx="42" cy="32" r="4" fill="currentColor"/><circle cx="28" cy="44" r="4" fill="currentColor"/>' },
-  { id: 'kess', name: 'Kess', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="currentColor"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="currentColor"/>' },
-  { id: 'wulp', name: 'Wulp', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>' },
-  { id: 'drov', name: 'Drov', icon: '<circle cx="32" cy="32" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M32 20v12l8 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' }
+  { id: 'wulp', name: 'Wulp', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>' }
 ];
 
 const TOGGLES = ['brim', 'nox', 'wex', 'plim', 'harn', 'kess', 'vell', 'quor'];
@@ -29,9 +26,7 @@ const state = {
   mode: 'blim',
   glim: 64,
   toggles: { brim: true, nox: false, wex: true, plim: false, harn: true, kess: false, vell: true, quor: false },
-  varn: [true, false, true, false, false, true, false, true],
-  jorv: { brim: 38, nox: 64, wex: 22 },
-  timers: [125, 48, 302]
+  varn: [true, false, true, false, false, true, false, true]
 };
 
 const el = {
@@ -57,7 +52,6 @@ let shownSpeed = -1;
 let routeLen = 0;
 let routeT = 0.16;
 let lastClock = '';
-const timerShown = [-1, -1, -1];
 
 function clamp(n, a, b) {
   return Math.max(a, Math.min(b, n));
@@ -175,13 +169,6 @@ function paintSpeed(display) {
   el.gaugeValue.style.stroke = state.drive === 'zor' ? '#f50000' : '#f3f0e8';
 }
 
-function fmt(total) {
-  const s = Math.max(0, Math.floor(total));
-  const m = Math.floor(s / 60);
-  const r = s % 60;
-  return String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
-}
-
 function tickClock(date) {
   let h = date.getHours();
   h = h % 12 || 12;
@@ -219,7 +206,6 @@ function buildChrome() {
     const label = name.charAt(0).toUpperCase() + name.slice(1);
     return '<button type="button" class="tile" data-action="toggle" data-toggle="' + name + '">' + label + '</button>';
   }).join('');
-  document.getElementById('kess-board').innerHTML = tileMarkup;
   document.getElementById('control-tiles').innerHTML = tileMarkup;
 
   const list = document.getElementById('varn-list');
@@ -307,11 +293,6 @@ el.screen.addEventListener('input', (event) => {
   if (target.id === 'glim') {
     state.glim = Number(target.value);
     el.glimVal.textContent = String(state.glim);
-    return;
-  }
-  if (target.dataset.jorv && Object.prototype.hasOwnProperty.call(state.jorv, target.dataset.jorv)) {
-    state.jorv[target.dataset.jorv] = Number(target.value);
-    document.getElementById('jorv-' + target.dataset.jorv).textContent = String(state.jorv[target.dataset.jorv]);
   }
 });
 
@@ -339,15 +320,6 @@ function frame(now) {
   paintSpeed(display);
 
   tickClock(new Date());
-
-  for (let i = 0; i < state.timers.length; i += 1) {
-    state.timers[i] += dt;
-    const whole = Math.floor(state.timers[i]);
-    if (whole !== timerShown[i]) {
-      timerShown[i] = whole;
-      document.getElementById('timer-' + i).textContent = fmt(whole);
-    }
-  }
 
   if (state.app === 'ploq' && !reduce.matches) {
     if (!routeLen) routeLen = el.route.getTotalLength();
