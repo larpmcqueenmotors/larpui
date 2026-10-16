@@ -286,36 +286,6 @@ svg { display: block; }
   text-anchor: middle;
 }
 
-.view-varn.is-on {
-  display: flex;
-  flex-direction: column;
-  padding: 16px 72px;
-}
-.varn-row {
-  flex: 1 1 0;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  border-bottom: 1px solid var(--line);
-  font-size: 32px;
-  color: var(--ink);
-  text-align: left;
-}
-.mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--dim);
-  flex: 0 0 auto;
-}
-.varn-row[aria-pressed="true"] .mark {
-  background: var(--ink);
-  box-shadow: inset 0 0 0 7px var(--dock);
-  border-color: var(--ink);
-}
-
 .view-wulp.is-on {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -390,7 +360,6 @@ svg { display: block; }
 
 .icon-zindle { background: #7a3333; }
 .icon-ploq { background: #2c4a5c; }
-.icon-varn { background: #3d5346; }
 .icon-wulp { background: #6a4630; }
 
 .sheet-controls {

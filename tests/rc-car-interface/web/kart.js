@@ -6,7 +6,6 @@ const SCREEN_H = 1080;
 const APPS = [
   { id: 'zindle', name: 'Main Screen', icon: '<rect x="22" y="14" width="20" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M26 30c0 8 12 8 12 0" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="14" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="22" r="5" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="13" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="51" cy="46" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 56h32" stroke="currentColor" stroke-width="2.5"/>' },
   { id: 'ploq', name: 'Map', icon: '<path d="M8 48c14-2 16-26 28-24s16 20 24 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="10" cy="46" r="3" fill="currentColor"/><circle cx="56" cy="28" r="3" fill="currentColor"/>' },
-  { id: 'varn', name: 'Media', icon: '<path d="M14 20h36M14 32h36M14 44h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>' },
   { id: 'wulp', name: 'Energy', icon: '<rect x="12" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="12" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="12" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="36" y="36" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/>' }
 ];
 
@@ -22,16 +21,6 @@ const TOGGLE_LABELS = {
   quor: 'Summon'
 };
 const MODE_LABELS = { blim: 'Chill', plex: 'Sport', vorn: 'Race' };
-const VARN = [
-  'Morning Mix',
-  'Night Drive',
-  'Garage Beats',
-  'Highway Hits',
-  'City Loop',
-  'Rain Session',
-  'Charge Chill',
-  'Open Road'
-];
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -45,8 +34,7 @@ const state = {
   app: 'zindle',
   mode: 'blim',
   glim: 64,
-  toggles: { brim: true, nox: false, wex: true, plim: false, harn: true, kess: false, vell: true, quor: false },
-  varn: [true, false, true, false, false, true, false, true]
+  toggles: { brim: true, nox: false, wex: true, plim: false, harn: true, kess: false, vell: true, quor: false }
 };
 
 const el = {
@@ -165,12 +153,6 @@ function renderToggles() {
   });
 }
 
-function renderVarn() {
-  document.querySelectorAll('.varn-row').forEach((row, index) => {
-    row.setAttribute('aria-pressed', state.varn[index] ? 'true' : 'false');
-  });
-}
-
 function paintSpeed(display) {
   const rounded = Math.max(0, Math.round(display));
   if (rounded !== shownSpeed) {
@@ -227,17 +209,6 @@ function buildChrome() {
     return '<button type="button" class="tile" data-action="toggle" data-toggle="' + name + '">' + label + '</button>';
   }).join('');
   document.getElementById('control-tiles').innerHTML = tileMarkup;
-
-  const list = document.getElementById('varn-list');
-  VARN.forEach((name, index) => {
-    const row = document.createElement('button');
-    row.type = 'button';
-    row.className = 'varn-row';
-    row.dataset.action = 'varn';
-    row.dataset.index = String(index);
-    row.innerHTML = '<span>' + name + '</span><span class="mark" aria-hidden="true"></span>';
-    list.appendChild(row);
-  });
 }
 
 el.screen.addEventListener('click', (event) => {
@@ -296,14 +267,6 @@ el.screen.addEventListener('click', (event) => {
     if (!Object.prototype.hasOwnProperty.call(state.toggles, key)) return;
     state.toggles[key] = !state.toggles[key];
     renderToggles();
-    return;
-  }
-
-  if (action === 'varn') {
-    const index = Number(target.dataset.index);
-    if (!Number.isInteger(index) || !VARN[index]) return;
-    state.varn[index] = !state.varn[index];
-    renderVarn();
   }
 });
 
@@ -363,7 +326,6 @@ renderApp();
 renderSheet();
 renderMode();
 renderToggles();
-renderVarn();
 paintSpeed(state.speed);
 tickClock(new Date());
 requestAnimationFrame(frame);
