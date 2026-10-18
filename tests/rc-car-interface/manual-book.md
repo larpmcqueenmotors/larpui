@@ -1,4 +1,4 @@
-# Quor-7 Kart Interface — User Manual
+# LARP McQueen — User Manual
 
 A short guide to the in-car drive screen: status bar, drive modes,
 apps, climate, and vehicle controls.
