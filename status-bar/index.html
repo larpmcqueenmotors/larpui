@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LARP UI — Status bar</title>
+        <link rel="stylesheet" href="status.css">
+        <style>
+                html,
+                body {
+                        margin: 0;
+                        height: 100%;
+                        background: #000;
+                        overflow: hidden;
+                        color-scheme: dark;
+                }
+
+                #fit {
+                        width: 100vw;
+                        height: 100vh;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                }
+
+                #screen {
+                        width: 1920px;
+                        height: 72px;
+                        flex: 0 0 auto;
+                        zoom: calc(100vw / 1920px);
+                }
+        </style>
+</head>
+
+<body>
+        <div id="fit">
+                <div id="screen" data-drive="d">
+                        <header class="status">
+                                <time class="clock" id="clock" datetime="">
+                                        <span id="clock-hm">2:18</span><span id="clock-s" class="clock-s">:00</span>
+                                </time>
+                                <nav class="drives" aria-label="drive">
+                                        <button type="button" class="drive" data-action="drive" data-drive="p"
+                                                aria-pressed="false">P</button>
+                                        <button type="button" class="drive" data-action="drive" data-drive="r"
+                                                aria-pressed="false">R</button>
+                                        <button type="button" class="drive" data-action="drive" data-drive="n"
+                                                aria-pressed="false">N</button>
+                                        <button type="button" class="drive" data-action="drive" data-drive="d"
+                                                aria-pressed="true">D</button>
+                                </nav>
+                                <div class="status-side">
+                                        <div class="meter" aria-hidden="true"><span></span></div>
+                                        <span class="range">312 mi</span>
+                                        <span class="status-rule" aria-hidden="true"></span>
+                                        <span id="mode-read" class="mode-read">Chill</span>
+                                </div>
+                        </header>
+                </div>
+        </div>
+        <script src="status.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+/* LARP UI — Status bar
+   Top bar copied from the car screen.
+   Clock, drive selector, range, and drive mode.
+*/
+
+:root {
+        --bg: #070708;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+        --line: rgba(243, 240, 232, 0.12);
+        --red: #f50000;
+}
+
+* {
+        box-sizing: border-box;
+}
+
+button,
+input {
+        font-family: inherit;
+        color: inherit;
+}
+
+button {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        user-select: none;
+        -webkit-user-select: none;
+}
+
+.kicker,
+.stat span,
+.mode-read,
+.speed-unit,
+.energy-tile span {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dim);
+        font-size: 14px;
+        font-weight: 500;
+}
+
+.status {
+        flex: 0 0 72px;
+        height: 72px;
+        display: grid;
+        grid-template-columns: 240px 1fr 420px;
+        align-items: center;
+        padding: 0 40px;
+        border-bottom: 1px solid var(--line);
+}
+
+.clock {
+        font-size: 30px;
+        font-weight: 400;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+}
+
+.clock-s {
+        font-size: 18px;
+        color: var(--dim);
+        font-variant-numeric: tabular-nums;
+}
+
+.drives {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+}
+
+.drive {
+        min-width: 128px;
+        min-height: 64px;
+        padding: 0 16px;
+        font-size: 28px;
+        letter-spacing: 0.14em;
+        color: var(--dim);
+        position: relative;
+}
+
+.drive[aria-pressed="true"] {
+        color: var(--ink);
+}
+
+.drive[data-drive="d"][aria-pressed="true"] {
+        color: var(--red);
+}
+
+.drive[aria-pressed="true"]::after {
+        content: "";
+        position: absolute;
+        left: 22%;
+        right: 22%;
+        bottom: 10px;
+        height: 2px;
+        background: currentColor;
+}
+
+.status-side {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+}
+
+.range {
+        font-size: 22px;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.03em;
+}
+
+.status-rule {
+        width: 1px;
+        height: 18px;
+        background: var(--line);
+}
+
+.mode-read {
+        font-size: 14px;
+        text-transform: lowercase;
+        letter-spacing: 0.18em;
+}
+
+.meter {
+        width: 78px;
+        height: 18px;
+        border: 1.5px solid rgba(243, 240, 232, 0.45);
+        border-radius: 4px;
+        padding: 3px;
+}
+
+.meter>span {
+        display: block;
+        height: 100%;
+        width: 78%;
+        background: var(--ink);
+}
