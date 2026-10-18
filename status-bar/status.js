@@ -1,3 +1,10 @@
+/**
+ * status.js 
+ * 
+ * Javascript for the status bar for the larpui toolkit.
+ */
+
+
 'use strict';
 
 const DRIVES = ['park', 'r', 'n', 'd'];
