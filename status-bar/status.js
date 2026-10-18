@@ -10,8 +10,8 @@
 const DRIVES = ['park', 'r', 'n', 'd'];
 
 const state = {
-        drive: 'd',
-        mode: 'chill'
+        drive: 'park',
+        mode: 'performance'
 };
 
 const el = {
