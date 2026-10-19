@@ -1,0 +1,63 @@
+/* LARP UI — Energy view
+   Energy stats grid from the car screen.
+   Trip, average, time, and laps tiles.
+*/
+
+:root {
+        --bg: #070708;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+        --line: rgba(243, 240, 232, 0.12);
+        --card: #141416;
+}
+
+* {
+        box-sizing: border-box;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+}
+
+.energy-tile span {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dim);
+        font-size: 14px;
+        font-weight: 500;
+}
+
+.view-energy.is-on {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 22px;
+        padding: 28px;
+        height: 100%;
+}
+
+.energy-tile {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 40px;
+        gap: 8px;
+}
+
+.energy-tile b {
+        font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+        font-size: 108px;
+        font-weight: 200;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+        color: var(--ink);
+}

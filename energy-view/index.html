@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LARP UI — Energy view</title>
+        <link rel="stylesheet" href="energy.css">
+        <style>
+                html,
+                body {
+                        margin: 0;
+                        height: 100%;
+                        background: #000;
+                        overflow: hidden;
+                        color-scheme: dark;
+                }
+
+                #fit {
+                        width: 100vw;
+                        height: 100vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+
+                #screen {
+                        width: 1920px;
+                        height: 812px;
+                        flex: 0 0 auto;
+                        zoom: calc(100vw / 1920px);
+                }
+        </style>
+</head>
+
+<body>
+        <div id="fit">
+                <div id="screen">
+                        <section class="view view-energy is-on" data-app="energy">
+                                <div class="energy-tile"><span>Trip</span><b>18</b></div>
+                                <div class="energy-tile"><span>Avg</span><b>4.2</b></div>
+                                <div class="energy-tile"><span>Time</span><b>71</b></div>
+                                <div class="energy-tile"><span>Laps</span><b>9</b></div>
+                        </section>
+                </div>
+        </div>
+</body>
+
+</html>

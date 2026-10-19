@@ -1,0 +1,105 @@
+/* LARP UI — Apps sheet
+   App launcher overlay from the car screen.
+   Main Screen, Map, and Energy tiles.
+*/
+
+:root {
+        --bg: #070708;
+        --dock: #141416;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+}
+
+* {
+        box-sizing: border-box;
+}
+
+button {
+        font-family: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+}
+
+svg {
+        display: block;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        position: relative;
+}
+
+.sheet {
+        position: absolute;
+        inset: 0;
+        background: var(--dock);
+        z-index: 4;
+        overflow: hidden;
+}
+
+.sheet-apps {
+        display: grid;
+        grid-template-columns: repeat(4, 240px);
+        grid-template-rows: repeat(2, 250px);
+        gap: 48px 80px;
+        place-content: center;
+        align-items: center;
+}
+
+.app-pick {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        min-height: 220px;
+}
+
+.app-icon {
+        width: 140px;
+        height: 140px;
+        border-radius: 36px;
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+}
+
+.app-icon svg {
+        width: 64px;
+        height: 64px;
+}
+
+.app-name {
+        font-size: 22px;
+        letter-spacing: 0.16em;
+        color: var(--dim);
+}
+
+.app-pick.is-current .app-name {
+        color: var(--ink);
+}
+
+.app-pick.is-current .app-icon {
+        outline: 2px solid var(--ink);
+        outline-offset: 8px;
+}
+
+.icon-main {
+        background: #7a3333;
+}
+
+.icon-map {
+        background: #2c4a5c;
+}
+
+.icon-energy {
+        background: #6a4630;
+}

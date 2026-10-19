@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LARP UI — Apps sheet</title>
+        <link rel="stylesheet" href="apps.css">
+        <style>
+                html,
+                body {
+                        margin: 0;
+                        height: 100%;
+                        background: #000;
+                        overflow: hidden;
+                        color-scheme: dark;
+                }
+
+                #fit {
+                        width: 100vw;
+                        height: 100vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+
+                #screen {
+                        width: 1920px;
+                        height: 812px;
+                        flex: 0 0 auto;
+                        zoom: calc(100vw / 1920px);
+                }
+        </style>
+</head>
+
+<body>
+        <div id="fit">
+                <div id="screen">
+                        <div class="sheet sheet-apps open" id="sheet-apps" role="dialog" aria-label="apps"
+                                aria-hidden="false"></div>
+                </div>
+        </div>
+        <script src="apps.js"></script>
+</body>
+
+</html>

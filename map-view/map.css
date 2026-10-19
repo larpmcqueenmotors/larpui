@@ -1,0 +1,55 @@
+/* LARP UI — Map view
+   Navigation map from the car screen.
+   Route path, place labels, and moving position dot.
+*/
+
+:root {
+        --bg: #070708;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+}
+
+* {
+        box-sizing: border-box;
+}
+
+svg {
+        display: block;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+}
+
+.view-map.is-on {
+        display: block;
+        height: 100%;
+}
+
+.map {
+        width: 100%;
+        height: 100%;
+}
+
+.places text {
+        fill: var(--dim);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.16em;
+        text-anchor: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+        }
+}

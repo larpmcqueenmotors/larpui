@@ -1,0 +1,246 @@
+/* LARP UI — Home screen
+   Main drive view from the car screen.
+   Lane, kart, speed gauge, and trip stats.
+*/
+
+:root {
+        --bg: #070708;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+        --line: rgba(243, 240, 232, 0.12);
+        --red: #f50000;
+        --card: #141416;
+        --lane: #101012;
+}
+
+* {
+        box-sizing: border-box;
+}
+
+svg {
+        display: block;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+}
+
+.stat span,
+.speed-unit {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dim);
+        font-size: 14px;
+        font-weight: 500;
+}
+
+.view-main.is-on {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        gap: 28px;
+        padding: 36px 44px 32px 48px;
+        height: 100%;
+}
+
+.lane-field {
+        min-width: 0;
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+}
+
+.lane {
+        position: relative;
+        width: 540px;
+        height: 100%;
+        background:
+                linear-gradient(90deg, rgba(243, 240, 232, 0.05), transparent 14%, transparent 86%, rgba(243, 240, 232, 0.05)),
+                var(--lane);
+        overflow: hidden;
+}
+
+.lane-dashes {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 6px;
+        margin-left: -3px;
+        background: repeating-linear-gradient(
+                to bottom,
+                rgba(243, 240, 232, 0.72) 0 36px,
+                transparent 36px 84px
+        );
+}
+
+.kart {
+        position: absolute;
+        width: 400px;
+        height: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+}
+
+.rail {
+        min-width: 0;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+}
+
+.card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        min-height: 0;
+}
+
+.speed-card {
+        flex: 1.45;
+        position: relative;
+        overflow: hidden;
+}
+
+.gauge {
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 4%;
+        bottom: 2%;
+        width: 88%;
+        height: 94%;
+}
+
+.speed-read {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 48%;
+        transform: translateY(-54%);
+        text-align: center;
+}
+
+.speed-num {
+        font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+        font-size: 176px;
+        font-weight: 200;
+        line-height: 0.92;
+        letter-spacing: -0.045em;
+        font-variant-numeric: tabular-nums;
+}
+
+.speed-unit {
+        margin-top: 10px;
+        font-size: 18px;
+        letter-spacing: 0.32em;
+}
+
+.stats {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 18px 36px 20px;
+        overflow: hidden;
+}
+
+.stat {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 2px 10px;
+        gap: 24px;
+}
+
+.stat b {
+        font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+        font-size: 44px;
+        font-weight: 200;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.03em;
+}
+
+.range-row {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding-top: 8px;
+}
+
+.range-row span {
+        font-size: 22px;
+        letter-spacing: 0.03em;
+        font-variant-numeric: tabular-nums;
+}
+
+.meter {
+        width: 78px;
+        height: 18px;
+        border: 1.5px solid rgba(243, 240, 232, 0.45);
+        border-radius: 4px;
+        padding: 3px;
+}
+
+.meter > span {
+        display: block;
+        height: 100%;
+        width: 78%;
+        background: var(--ink);
+}
+
+.meter-lg {
+        width: auto;
+        flex: 1;
+        height: 22px;
+}
+
+#screen[data-moving="true"] .lane-dashes {
+        animation: lane-move 0.85s linear infinite;
+}
+
+#screen[data-moving="true"] .spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: wheel-spin 0.55s linear infinite;
+}
+
+.spin {
+        transform-box: fill-box;
+        transform-origin: center;
+}
+
+@keyframes lane-move {
+        from {
+                background-position: 0 0;
+        }
+        to {
+                background-position: 0 84px;
+        }
+}
+
+@keyframes wheel-spin {
+        to {
+                transform: rotate(360deg);
+        }
+}
+
+@media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+        }
+}
