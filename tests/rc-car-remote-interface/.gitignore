@@ -1,0 +1,11 @@
+# Downloaded at configure time. The CEF tarball and framework binaries
+# are 100MB–300MB, which GitHub rejects unless Git LFS is used.
+third_party/
+*.tar.bz2
+*.sha1
+
+# Local build output, including the copied CEF framework.
+build/
+
+# clangd / editor index caches
+.cache/
