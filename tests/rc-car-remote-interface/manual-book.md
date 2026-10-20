@@ -1,14 +1,35 @@
 # LARP McQueen RC Car Remote - User Manual
 
-A short guide to the Steam Deck RC car remote interface.
+A short guide to the Steam Deck RC car remote interface: status bar,
+drive modes, apps, and remote vehicle controls.
 
-This variant is authored for the Steam Deck native display resolution: 1280 by 800.
+Authored for the Steam Deck native display: 1280 by 800.
+The layout scales to fit your window while keeping the same proportions.
 
-## Getting Started
+
+## Table of Contents
+
+1. [Getting Started](#1-getting-started)
+2. [Screen Layout](#2-screen-layout)
+3. [Drive Selector](#3-drive-selector)
+4. [Main Screen](#4-main-screen)
+5. [Map](#5-map)
+6. [Energy](#6-energy)
+7. [Apps Sheet](#7-apps-sheet)
+8. [Controls Sheet](#8-controls-sheet)
+9. [Dock](#9-dock)
+10. [Keyboard Shortcuts](#10-keyboard-shortcuts)
+11. [Quick Reference](#11-quick-reference)
+
+
+## 1. Getting Started
+
+### Build and run (desktop app)
 
 From the `rc-car-remote-interface` folder:
 
     make
+
     make run
 
 Other useful targets:
@@ -18,39 +39,228 @@ Other useful targets:
     make clean       # delete the build/ folder
     make help        # list all targets
 
-To preview the web UI without the native shell, open `web/index.html` in a browser.
+### Open the web UI alone
 
-## Screen Layout
+Open this file in a browser:
 
-The top status bar shows the clock, gear selector, battery/range meter, and current drive mode.
+    web/index.html
 
-The main stage shows one of three apps:
+No build step is required for the web UI alone.
 
-- Main Screen - full-width speed gauge and trip stats
+
+## 2. Screen Layout
+
+The screen has three horizontal bands.
+
+### Top - Status bar
+
+- Clock (hours, minutes, and seconds)
+- Drive selector: P, R, N, D
+- Battery / range meter (312 mi)
+- Current drive mode label (Chill, Sport, or Race)
+
+### Middle - Stage
+
+Shows one of three apps at a time:
+
+- Main Screen - speed gauge and trip stats
 - Map - route overview
 - Energy - trip and session tiles
 
-The bottom dock is intentionally compact for remote use. It only contains the Apps and Controls buttons. Climate controls and the volume rocker are not part of this variant.
+Bottom sheets (Apps or Controls) can slide up over this area.
 
-## Main Controls
+### Bottom - Dock
 
-Use the gear selector in the status bar to switch between P, R, N, and D. Drive mode changes are handled from the Controls sheet.
+Compact remote dock with:
 
-Tap the Apps button in the dock to switch between Main Screen, Map, and Energy. Tap the Controls button to open mode and remote toggle controls.
+- Apps button (grid icon)
+- Controls button (sliders icon)
 
-The Controls sheet includes:
+Climate controls, seat heat, volume, and the home-screen lane/kart
+widget are not part of this Steam Deck remote variant.
 
-- Drive modes: Chill, Sport, Race
-- Toggles: Lights, Camera
 
-Press Escape or tap the active dock button again to close an open sheet.
+## 3. Drive Selector
 
-## Developer Notes
+Tap a letter in the center of the status bar.
 
-The web UI lives in `web/`:
+| Button | Meaning              | Speed behavior          |
+|--------|----------------------|-------------------------|
+| P      | Park                 | Speed settles to 0      |
+| R      | Reverse              | Speed settles to 0      |
+| N      | Neutral              | Speed settles near 22   |
+| D      | Drive                | Speed settles near 64   |
+
+Notes:
+
+- The active letter is highlighted.
+- On Drive (D), the speed gauge arc is red.
+- On other gears, the gauge arc is light.
+
+
+## 4. Main Screen
+
+Default view when the interface opens.
+
+### Speed gauge
+
+- Arc gauge and large speed number (mph)
+- Speed follows the selected gear (see section 3)
+
+### Trip stats
+
+- Trip distance
+- Average speed
+- Time
+- Range meter matching the status bar
+
+
+## 5. Map
+
+Open Map from the Apps sheet (see section 7).
+
+You will see:
+
+- A curved route across labeled places:
+  Depot, Ridge, Cove, Peak, Bay
+- A moving marker that travels along the route
+
+The marker loops continuously while Map is open
+(unless reduced motion is enabled in the OS).
+
+
+## 6. Energy
+
+Open Energy from the Apps sheet.
+
+Four readouts:
+
+- Trip
+- Avg
+- Time
+- Laps
+
+Use this view for a quick energy / session summary.
+
+
+## 7. Apps Sheet
+
+1. Tap the Apps button (grid of four squares) in the dock.
+2. The Apps sheet slides up from the bottom.
+3. Choose an app:
+
+   - Main Screen
+   - Map
+   - Energy
+
+4. The sheet closes and that view fills the stage.
+
+To close the sheet without changing apps:
+
+- Tap the Apps button again, or
+- Press Escape
+
+
+## 8. Controls Sheet
+
+1. Tap the Controls button (three lines with knobs) in the dock.
+2. The Controls sheet slides up.
+
+### Drive mode
+
+Choose one:
+
+- Chill
+- Sport
+- Race
+
+The selected mode appears in the top-right status bar.
+
+### Remote toggles
+
+Tap any tile to turn it on or off.
+Pressed tiles are active.
+
+| Toggle | Default |
+|--------|---------|
+| Lights | On      |
+| Camera | On      |
+
+There is no speed slider, lock, wipers, sentry, autopark, or summon
+control in this remote variant.
+
+To close the Controls sheet:
+
+- Tap the Controls button again, or
+- Press Escape
+
+
+## 9. Dock
+
+The dock is intentionally compact for Steam Deck remote use.
+
+Buttons:
+
+- Apps - open the Apps sheet
+- Controls - open the Controls sheet
+
+Not included in this variant:
+
+- Driver / passenger climate
+- Seat heat
+- Volume rocker
+
+
+## 10. Keyboard Shortcuts
+
+| Key     | Action                              |
+|---------|-------------------------------------|
+| Escape  | Close the open Apps or Controls sheet |
+
+There are no other keyboard shortcuts in this interface.
+Most interaction is with the pointer (mouse, touch, or Steam Deck controls).
+
+
+## 11. Quick Reference
+
+### Open apps
+
+    Dock -> Apps (grid) -> Main Screen | Map | Energy
+
+### Open vehicle controls
+
+    Dock -> Controls (sliders) -> Mode | Lights | Camera
+
+### Change gear
+
+    Status bar -> P | R | N | D
+
+### Close a sheet
+
+    Escape
+    or tap the same dock button again
+
+
+## Tips
+
+- Only one sheet (Apps or Controls) is open at a time.
+  Opening one closes the other.
+- Switching apps always closes the Apps sheet.
+- If you prefer less motion, enable "Reduce motion" in your
+  operating system. Sheet animations and map motion will ease off.
+- The screen is authored at 1280 by 800 and scales to fit
+  any window size.
+
+
+## File Map (for developers)
 
     web/index.html   - structure of the remote interface
-    web/kart.css     - Steam Deck 1280x800 layout
+    web/kart.css     - Steam Deck 1280x800 look and layout
     web/kart.js      - interaction and live updates
 
-The native preview app is built with CEF via CMake. Web assets are copied from `web/` into the app bundle; nothing is synced from a parent directory.
+The desktop preview app is built with CEF (Chromium Embedded Framework)
+via CMake. Web assets are copied from `web/` into the app bundle;
+nothing is synced from a parent directory.
+
+
+- End of manual -
