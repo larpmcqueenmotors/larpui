@@ -1,0 +1,107 @@
+/* LARP UI — Controls sheet
+   Vehicle controls overlay from the remote interface.
+   Drive mode and feature toggles.
+*/
+
+:root {
+        --bg: #070708;
+        --dock: #141416;
+        --ink: #f3f0e8;
+        --dim: rgba(243, 240, 232, 0.42);
+        --line: rgba(243, 240, 232, 0.12);
+}
+
+* {
+        box-sizing: border-box;
+}
+
+button,
+input {
+        font-family: inherit;
+        color: inherit;
+}
+
+button {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        position: relative;
+}
+
+.sheet {
+        position: absolute;
+        inset: 0;
+        background: var(--dock);
+        z-index: 4;
+        overflow: hidden;
+}
+
+.sheet-controls {
+        display: flex;
+        flex-direction: column;
+        padding: 36px 56px 30px;
+        gap: 22px;
+}
+
+.segment {
+        align-self: center;
+        width: min(860px, 100%);
+        height: 80px;
+        display: flex;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+}
+
+.segment button {
+        flex: 1;
+        font-size: 24px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--dim);
+}
+
+.segment button + button {
+        border-left: 1px solid var(--line);
+}
+
+.segment button[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--dock);
+}
+
+.tile-grid {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 220px);
+        grid-template-rows: 120px;
+        place-content: center;
+        gap: 22px;
+}
+
+.tile {
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--dim);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 20px;
+}
+
+.tile[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--dock);
+        border-color: transparent;
+}

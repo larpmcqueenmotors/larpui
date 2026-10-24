@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LARP UI — Controls sheet</title>
+        <link rel="stylesheet" href="controls.css">
+        <style>
+                html,
+                body {
+                        margin: 0;
+                        height: 100%;
+                        background: #000;
+                        overflow: hidden;
+                        color-scheme: dark;
+                }
+
+                #fit {
+                        width: 100vw;
+                        height: 100vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+
+                #screen {
+                        width: 1280px;
+                        height: 624px;
+                        flex: 0 0 auto;
+                        zoom: calc(100vw / 1280px);
+                }
+        </style>
+</head>
+
+<body>
+        <div id="fit">
+                <div id="screen">
+                        <div class="sheet sheet-controls open" id="sheet-controls" role="dialog" aria-label="controls"
+                                aria-hidden="false">
+                                <div class="segment" role="group" aria-label="mode">
+                                        <button type="button" data-action="mode" data-mode="chill"
+                                                aria-pressed="true">Chill</button>
+                                        <button type="button" data-action="mode" data-mode="sport"
+                                                aria-pressed="false">Sport</button>
+                                        <button type="button" data-action="mode" data-mode="race"
+                                                aria-pressed="false">Race</button>
+                                </div>
+                                <div class="tile-grid" id="control-tiles"></div>
+                        </div>
+                </div>
+        </div>
+        <script src="controls.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+/* LARP UI — Dock
+   Bottom bar copied from the remote interface.
+   Apps and controls launcher buttons.
+*/
+
+:root {
+        --bg: #070708;
+        --dock: #141416;
+        --ink: #f3f0e8;
+        --line: rgba(243, 240, 232, 0.12);
+}
+
+* {
+        box-sizing: border-box;
+}
+
+button,
+input {
+        font-family: inherit;
+        color: inherit;
+}
+
+button {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+}
+
+svg {
+        display: block;
+}
+
+#screen {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        user-select: none;
+        -webkit-user-select: none;
+}
+
+.dock {
+        flex: 0 0 112px;
+        height: 112px;
+        background: var(--dock);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.zone {
+        min-width: 0;
+}
+
+.big-btn {
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: transparent;
+        flex: 0 0 auto;
+        width: 84px;
+        height: 84px;
+        border-radius: 22px;
+}
+
+.big-btn svg {
+        width: 34px;
+        height: 34px;
+}
+
+.big-btn[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--dock);
+        border-color: transparent;
+}
+
+.zone-side {
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+}
