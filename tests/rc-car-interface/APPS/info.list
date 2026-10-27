@@ -1,0 +1,14 @@
+# APPS catalog — rc-car-interface
+# Fields per app: id, title, description
+
+id = main
+title = Main Screen
+description = Default drive view with an animated lane, kart silhouette, speed gauge, and trip stats.
+
+id = map
+title = Map
+description = Route map across labeled places with a marker that travels along the path.
+
+id = energy
+title = Energy
+description = Quick session summary with trip, average speed, time, and laps readouts.

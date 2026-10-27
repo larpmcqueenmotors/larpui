@@ -1,0 +1,36 @@
+/* Energy — built-in RC car interface
+   Four session summary tiles. */
+
+.view-energy.is-on {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 22px;
+  padding: 28px;
+}
+
+.energy-tile {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  gap: 8px;
+}
+
+.energy-tile span {
+  color: var(--dim);
+  letter-spacing: 0.16em;
+}
+
+.energy-tile b {
+  font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: 108px;
+  font-weight: 200;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}

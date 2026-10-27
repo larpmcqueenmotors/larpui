@@ -1,0 +1,24 @@
+<!-- Main Screen app — RC car remote interface -->
+<section class="view view-main is-on" data-app="main">
+  <aside class="rail">
+    <div class="card speed-card">
+      <svg class="gauge" viewBox="0 0 400 360" aria-hidden="true">
+        <path id="gauge-track" fill="none" stroke="rgba(243,240,232,0.12)" stroke-width="3"></path>
+        <path id="gauge-value" fill="none" stroke="#f50000" stroke-width="3" stroke-linecap="round"></path>
+      </svg>
+      <div class="speed-read">
+        <div id="speed" class="speed-num">64</div>
+        <div class="speed-unit">mph</div>
+      </div>
+    </div>
+    <div class="card stats">
+      <div class="stat"><span>Trip</span><b>1.84</b></div>
+      <div class="stat"><span>Avg</span><b>42</b></div>
+      <div class="stat"><span>Time</span><b>09</b></div>
+      <div class="range-row">
+        <div class="meter meter-lg" aria-hidden="true"><span></span></div>
+        <span>312 mi</span>
+      </div>
+    </div>
+  </aside>
+</section>

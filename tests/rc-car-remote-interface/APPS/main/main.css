@@ -1,0 +1,105 @@
+/* Main Screen — RC car remote interface
+   Speed gauge and trip stats. */
+
+.view-main.is-on {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 28px 44px;
+}
+
+.rail {
+  width: min(100%, 1120px);
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  min-height: 0;
+}
+
+.speed-card {
+  flex: 1.35;
+  position: relative;
+  overflow: hidden;
+}
+
+.gauge {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 4%;
+  bottom: 2%;
+  width: 88%;
+  height: 94%;
+}
+
+.speed-read {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48%;
+  transform: translateY(-54%);
+  text-align: center;
+}
+
+.speed-num {
+  font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: 156px;
+  font-weight: 200;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.speed-unit {
+  margin-top: 10px;
+  font-size: 18px;
+  letter-spacing: 0.32em;
+}
+
+.stats {
+  flex: 0 0 360px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 18px 36px 20px;
+  overflow: hidden;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 2px 10px;
+  gap: 24px;
+}
+
+.stat b {
+  font-family: "Avenir Next Ultra Light", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  font-weight: 200;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-top: 8px;
+}
+
+.range-row span {
+  font-size: 22px;
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+}
