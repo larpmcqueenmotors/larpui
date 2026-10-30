@@ -21,7 +21,7 @@ public:
         void OnWindowCreated(CefRefPtr<CefWindow> window) override
         {
                 window->AddChildView(browser_view_);
-                window->SetTitle("Kart");
+                window->SetTitle("Ui");
                 window->CenterWindow(CefSize(kScreenWidth, kScreenHeight));
                 window->Show();
                 browser_view_->RequestFocus();
@@ -118,7 +118,7 @@ void CreateBrowser(CefRefPtr<CefClient> client,
 
         CefWindowInfo window_info;
 #if defined(OS_WIN)
-        window_info.SetAsPopup(nullptr, "Kart");
+        window_info.SetAsPopup(nullptr, "Ui");
 #endif
         window_info.runtime_style = runtime_style;
         window_info.bounds = CefRect(0, 0, kScreenWidth, kScreenHeight);

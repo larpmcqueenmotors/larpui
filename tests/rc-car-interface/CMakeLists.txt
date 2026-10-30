@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
 
-project(larp_kart_cef CXX)
+project(larp_ui_cef CXX)
 
 set(USE_SANDBOX OFF CACHE BOOL "Disable CEF sandbox for local Quor-7 preview builds")
 
@@ -65,9 +65,9 @@ add_subdirectory(${CEF_LIBCEF_DLL_WRAPPER_PATH} libcef_dll_wrapper)
 # Target layout
 #
 
-set(CEF_TARGET "kart_cef")
-set(CEF_HELPER_TARGET "kart_cef_Helper")
-set(CEF_HELPER_OUTPUT_NAME "kart_cef Helper")
+set(CEF_TARGET "ui_cef")
+set(CEF_HELPER_TARGET "ui_cef_Helper")
+set(CEF_HELPER_OUTPUT_NAME "ui_cef Helper")
 
 set(CEF_COMMON_SRCS
         src/app_browser.cc
@@ -76,7 +76,7 @@ set(CEF_COMMON_SRCS
         src/browser_util.cc
         src/client_manager.cc
         src/client_util.cc
-        src/kart_client.cc
+        src/ui_client.cc
         src/main_util.cc
 )
 

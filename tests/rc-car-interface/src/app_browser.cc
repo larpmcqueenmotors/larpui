@@ -1,6 +1,6 @@
 #include "app_factory.h"
 #include "browser_util.h"
-#include "kart_client.h"
+#include "ui_client.h"
 #include "web_path.h"
 
 namespace spc {
@@ -29,7 +29,7 @@ public:
         {
                 CefBrowserSettings settings;
                 settings.background_color = CefColorSetARGB(255, 7, 7, 8);
-                shared::CreateBrowser(new KartClient(), GetStartupUrl(), settings);
+                shared::CreateBrowser(new UiClient(), GetStartupUrl(), settings);
         }
 
 private:

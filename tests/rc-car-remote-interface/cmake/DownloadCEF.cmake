@@ -1,5 +1,5 @@
 # Copyright (c) 2016 The Chromium Embedded Framework Authors.
-# Adapted for Quor kart CEF preview.
+# Adapted for Quor ui CEF preview.
 
 function(DownloadCEF platform channel version download_dir)
     if(channel STREQUAL "beta")

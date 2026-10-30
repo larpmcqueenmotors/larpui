@@ -2,7 +2,7 @@
  * main.js
  *
  * Main Screen app for the built-in RC car interface.
- * Lane, kart, speed gauge, and trip stats.
+ * Lane, ui, speed gauge, and trip stats.
  */
 
 'use strict';

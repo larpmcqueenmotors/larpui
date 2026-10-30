@@ -5,12 +5,12 @@
 
 namespace spc {
 
-class KartClient : public CefClient,
+class UiClient : public CefClient,
                     public CefDisplayHandler,
                     public CefLifeSpanHandler,
                     public CefKeyboardHandler {
 public:
-        KartClient();
+        UiClient();
 
         CefRefPtr<CefDisplayHandler> GetDisplayHandler() override { return this; }
         CefRefPtr<CefLifeSpanHandler> GetLifeSpanHandler() override { return this; }
@@ -26,7 +26,7 @@ public:
                            bool* is_keyboard_shortcut) override;
 
 private:
-        IMPLEMENT_REFCOUNTING(KartClient);
+        IMPLEMENT_REFCOUNTING(UiClient);
 };
 
 } // namespace spc

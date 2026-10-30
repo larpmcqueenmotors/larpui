@@ -1,10 +1,10 @@
-# Quor-7 kart CEF preview.
+# Quor-7 ui CEF preview.
 # Web UI lives in web/. CMake copies that folder into the app bundle.
 # Nothing is synced from a parent directory.
 
 BUILD_DIR := build
 CONFIG ?= Debug
-APP := $(BUILD_DIR)/$(CONFIG)/kart_cef.app
+APP := $(BUILD_DIR)/$(CONFIG)/ui_cef.app
 
 .PHONY: all help configure build run clean
 
@@ -12,11 +12,11 @@ all: build
 
 help:
 	@printf '%s\n' \
-		'Quor-7 kart CEF preview' \
+		'Quor-7 ui CEF preview' \
 		'' \
-		'  make              configure if needed, then build kart_cef.app' \
+		'  make              configure if needed, then build ui_cef.app' \
 		'  make configure    generate the CMake build in build/' \
-		'  make build        compile kart_cef.app' \
+		'  make build        compile ui_cef.app' \
 		'  make run          launch the built app' \
 		'  make clean        delete build/' \
 		'  make help         show this text' \

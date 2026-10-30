@@ -12,7 +12,7 @@ const APPS = [
                 id: 'main',
                 title: 'Main Screen',
                 description:
-                        'Default drive view with an animated lane, kart silhouette, speed gauge, and trip stats.',
+                        'Default drive view with an animated lane, ui silhouette, speed gauge, and trip stats.',
                 path: 'main/'
         },
         {

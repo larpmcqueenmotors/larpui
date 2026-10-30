@@ -35,7 +35,7 @@ From the `rc-car-interface` folder:
 Other useful targets:
 
     make configure   # generate the CMake build
-    make build       # compile kart_cef.app
+    make build       # compile ui_cef.app
     make clean       # delete the build/ folder
     make help        # list all targets
 
@@ -63,7 +63,7 @@ The screen has three horizontal bands.
 
 Shows one of three apps at a time:
 
-- Main Screen — kart view and speed gauge
+- Main Screen — ui view and speed gauge
 - Map — route overview
 - Energy — trip and energy tiles
 
@@ -94,17 +94,17 @@ Notes:
 - The active letter is highlighted.
 - On Drive (D), the speed gauge arc is red.
 - On other gears, the gauge arc is light.
-- Lane motion and wheel spin follow whether the kart is moving.
+- Lane motion and wheel spin follow whether the ui is moving.
 
 
 ## 4. Main Screen
 
 Default view when the interface opens.
 
-### Left — Lane and kart
+### Left — Lane and ui
 
 - Animated lane dashes when moving
-- Kart silhouette with spinning wheels while in motion
+- Ui silhouette with spinning wheels while in motion
 
 ### Right — Speed and trip
 
@@ -284,8 +284,8 @@ Most interaction is with the pointer (mouse or touch).
 ## File Map (for developers)
 
     web/index.html   — structure of the drive screen
-    web/kart.css     — look and layout
-    web/kart.js      — interaction and live updates
+    web/ui.css       — look and layout
+    web/ui.js        — interaction and live updates
 
 The desktop preview app is built with CEF (Chromium Embedded Framework)
 via CMake. Web assets are copied from `web/` into the app bundle;

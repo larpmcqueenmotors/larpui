@@ -1,5 +1,5 @@
 /* Main Screen — built-in RC car interface
-   Lane, kart silhouette, speed gauge, and trip stats. */
+   Lane, ui silhouette, speed gauge, and trip stats. */
 
 .view-main.is-on {
   display: grid;
@@ -40,7 +40,7 @@
   );
 }
 
-.kart {
+.ui {
   position: absolute;
   width: 400px;
   height: auto;

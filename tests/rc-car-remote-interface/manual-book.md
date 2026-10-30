@@ -35,7 +35,7 @@ From the `rc-car-remote-interface` folder:
 Other useful targets:
 
     make configure   # generate the CMake build
-    make build       # compile kart_cef.app
+    make build       # compile ui_cef.app
     make clean       # delete the build/ folder
     make help        # list all targets
 
@@ -76,7 +76,7 @@ Compact remote dock with:
 - Apps button (grid icon)
 - Controls button (sliders icon)
 
-Climate controls, seat heat, volume, and the home-screen lane/kart
+Climate controls, seat heat, volume, and the home-screen lane/ui
 widget are not part of this Steam Deck remote variant.
 
 
@@ -255,8 +255,8 @@ Most interaction is with the pointer (mouse, touch, or Steam Deck controls).
 ## File Map (for developers)
 
     web/index.html   - structure of the remote interface
-    web/kart.css     - Steam Deck 1280x800 look and layout
-    web/kart.js      - interaction and live updates
+    web/ui.css     - Steam Deck 1280x800 look and layout
+    web/ui.js      - interaction and live updates
 
 The desktop preview app is built with CEF (Chromium Embedded Framework)
 via CMake. Web assets are copied from `web/` into the app bundle;

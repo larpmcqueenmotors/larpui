@@ -12,18 +12,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface KartAppDelegate : NSObject <NSApplicationDelegate>
+@interface UiAppDelegate : NSObject <NSApplicationDelegate>
 - (void)bootstrapApplication;
 - (void)tryToTerminateApplication:(NSApplication*)app;
 @end
 
-@interface KartApplication : NSApplication {
+@interface UiApplication : NSApplication {
 @private
         BOOL handlingSendEvent_;
 }
 @end
 
-@implementation KartApplication
+@implementation UiApplication
 - (BOOL)isHandlingSendEvent
 {
         return handlingSendEvent_;
@@ -42,12 +42,12 @@
 
 - (void)terminate:(id)sender
 {
-        KartAppDelegate* delegate = static_cast<KartAppDelegate*>([NSApp delegate]);
+        UiAppDelegate* delegate = static_cast<UiAppDelegate*>([NSApp delegate]);
         [delegate tryToTerminateApplication:self];
 }
 @end
 
-@implementation KartAppDelegate
+@implementation UiAppDelegate
 - (void)bootstrapApplication
 {
         [NSApplication sharedApplication];
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
                 CefRefPtr<CefCommandLine> command_line = CreateCommandLine(main_args);
                 CefRefPtr<CefApp> app = CreateBrowserProcessApp();
 
-                [KartApplication sharedApplication];
+                [UiApplication sharedApplication];
 
                 ClientManager manager;
 
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
                 settings.windowless_rendering_enabled = false;
                 settings.no_sandbox = true;
 
-                const auto cache_root = std::filesystem::temp_directory_path() / "larp-kart-cef";
+                const auto cache_root = std::filesystem::temp_directory_path() / "larp-ui-cef";
                 const std::string cache_root_str = cache_root.string();
                 CefString(&settings.root_cache_path).FromASCII(cache_root_str.c_str());
                 CefString(&settings.cache_path).FromASCII((cache_root / "cache").string().c_str());
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
                         return 1;
                 }
 
-                KartAppDelegate* delegate = [[KartAppDelegate alloc] init];
+                UiAppDelegate* delegate = [[UiAppDelegate alloc] init];
                 [delegate performSelectorOnMainThread:@selector(bootstrapApplication)
                                            withObject:nil
                                         waitUntilDone:NO];
