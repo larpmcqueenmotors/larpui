@@ -94,17 +94,18 @@ Notes:
 - The active letter is highlighted.
 - On Drive (D), the speed gauge arc is red.
 - On other gears, the gauge arc is light.
-- Lane motion and wheel spin follow whether the ui is moving.
+- The lane view moves with speed and holds still when the car is stopped.
 
 
 ## 4. Main Screen
 
 Default view when the interface opens.
 
-### Left — Lane and ui
+### Left — Lane view
 
-- Animated lane dashes when moving
-- Ui silhouette with spinning wheels while in motion
+- A three-dimensional supercar, centered in its lane
+- The road markings and wheels move with speed, and stop when the car stops
+- Taillights brighten in Park and Reverse; headlights dim in Park
 
 ### Right — Speed and trip
 
@@ -276,16 +277,19 @@ Most interaction is with the pointer (mouse or touch).
   Opening one closes the other.
 - Switching apps always closes the Apps sheet.
 - If you prefer less motion, enable "Reduce motion" in your
-  operating system. Sheet animations and map motion will ease off.
+  operating system. The lane scene holds still, and sheet
+  animations and map motion ease off.
 - The screen is authored at 1920 by 1080 and scales to fit
   any window size.
 
 
 ## File Map (for developers)
 
-    web/index.html   — structure of the drive screen
-    web/ui.css       — look and layout
-    web/ui.js        — interaction and live updates
+    web/index.html          — structure of the drive screen
+    web/ui.css              — look and layout
+    web/ui.js               — interaction and live updates
+    web/car-scene.js        — 3D supercar lane view
+    web/assets/supercar.jpg — supercar image, used if 3D is unavailable
 
 The desktop preview app is built with CEF (Chromium Embedded Framework)
 via CMake. Web assets are copied from `web/` into the app bundle;

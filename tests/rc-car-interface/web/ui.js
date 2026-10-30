@@ -46,7 +46,7 @@ const TOGGLES = [
         { id: 'summon', label: 'Summon', on: false }
 ];
 
-const DRIVES = ['park', 'r', 'n', 'd'];
+const DRIVES = ['p', 'r', 'n', 'd'];
 const MODES = ['chill', 'sport', 'race'];
 const SEATS = ['driver', 'passenger'];
 

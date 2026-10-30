@@ -168,32 +168,31 @@ svg { display: block; }
   position: relative;
   width: 540px;
   height: 100%;
-  background:
-    linear-gradient(90deg, rgba(243, 240, 232, 0.05), transparent 14%, transparent 86%, rgba(243, 240, 232, 0.05)),
-    var(--lane);
+  background: var(--lane);
   overflow: hidden;
 }
-.lane-dashes {
+.lane::after {
+  content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 6px;
-  margin-left: -3px;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(243, 240, 232, 0.72) 0 36px,
-    transparent 36px 84px
-  );
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(243, 240, 232, 0.05), transparent 14%, transparent 86%, rgba(243, 240, 232, 0.05));
 }
-.ui {
+.car-scene,
+.car-fallback {
   position: absolute;
-  width: 400px;
-  height: auto;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--lane);
 }
+.car-fallback {
+  display: none;
+  object-fit: contain;
+}
+.lane.is-fallback .car-fallback { display: block; }
+.lane.is-fallback .car-scene { display: none; }
 
 .rail {
   min-width: 0;
@@ -541,20 +540,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: 44px;
   margin-top: -19px;
 }
-
-#screen[data-moving="true"] .lane-dashes { animation: lane-move 0.85s linear infinite; }
-#screen[data-moving="true"] .spin {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: wheel-spin 0.55s linear infinite;
-}
-.spin { transform-box: fill-box; transform-origin: center; }
-
-@keyframes lane-move {
-  from { background-position: 0 0; }
-  to { background-position: 0 84px; }
-}
-@keyframes wheel-spin { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

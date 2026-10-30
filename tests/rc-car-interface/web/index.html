@@ -30,52 +30,9 @@
       <main class="stage">
         <section class="view view-main is-on" data-app="main">
           <div class="lane-field">
-            <div class="lane">
-              <div class="lane-dashes"></div>
-              <svg class="ui" viewBox="0 0 360 520" aria-hidden="true">
-                <g class="wing">
-                  <rect x="36" y="448" width="288" height="14" rx="2" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
-                  <rect x="36" y="436" width="10" height="38" rx="1" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
-                  <rect x="314" y="436" width="10" height="38" rx="1" fill="#1a1a1c" stroke="rgba(243,240,232,0.4)" stroke-width="2"/>
-                </g>
-                <rect x="122" y="132" width="116" height="250" rx="48" fill="#141416" stroke="rgba(243,240,232,0.55)" stroke-width="2.5"/>
-                <line x1="180" y1="146" x2="180" y2="178" stroke="#f50000" stroke-width="4" stroke-linecap="round"/>
-                <circle cx="180" cy="196" r="15" fill="none" stroke="rgba(243,240,232,0.55)" stroke-width="3"/>
-                <rect x="156" y="214" width="48" height="92" rx="16" fill="#070708" stroke="rgba(243,240,232,0.35)" stroke-width="2"/>
-                <path d="M148 236 Q180 328 212 236" fill="none" stroke="rgba(243,240,232,0.88)" stroke-width="7" stroke-linecap="round"/>
-                <g class="wheel" transform="translate(58,188)">
-                  <circle r="44" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
-                  <g class="spin">
-                    <line x1="0" y1="-22" x2="0" y2="22" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <line x1="-22" y1="0" x2="22" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <circle r="12" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
-                  </g>
-                </g>
-                <g class="wheel" transform="translate(302,188)">
-                  <circle r="44" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
-                  <g class="spin">
-                    <line x1="0" y1="-22" x2="0" y2="22" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <line x1="-22" y1="0" x2="22" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <circle r="12" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
-                  </g>
-                </g>
-                <g class="wheel" transform="translate(64,368)">
-                  <circle r="46" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
-                  <g class="spin">
-                    <line x1="0" y1="-24" x2="0" y2="24" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <circle r="13" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
-                  </g>
-                </g>
-                <g class="wheel" transform="translate(296,368)">
-                  <circle r="46" fill="#070708" stroke="rgba(243,240,232,0.62)" stroke-width="9"/>
-                  <g class="spin">
-                    <line x1="0" y1="-24" x2="0" y2="24" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f3f0e8" stroke-opacity="0.7" stroke-width="3"/>
-                    <circle r="13" fill="none" stroke="#f3f0e8" stroke-opacity="0.45" stroke-width="3"/>
-                  </g>
-                </g>
-              </svg>
+            <div class="lane" data-car-scene>
+              <canvas class="car-scene" role="img" aria-label="Supercar centered in its lane"></canvas>
+              <img class="car-fallback" alt="" src="assets/supercar.jpg">
             </div>
           </div>
           <aside class="rail">
@@ -189,6 +146,7 @@
       </footer>
     </div>
   </div>
+  <script src="car-scene.js"></script>
   <script src="ui.js"></script>
 </body>
 </html>
